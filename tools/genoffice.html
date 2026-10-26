@@ -12,7 +12,7 @@
 <link rel="icon" href="../assets/logo-128.png"><link rel="apple-touch-icon" href="../assets/logo-128.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet"><style>
 :root { --ink: #0B0B0D; --ink2: #15151A; --paper: #FAF7F2; --card: #FFFFFF; --line: #ECE6DC; --text: #17120E; --mute: #6B6258;
   --light: #F3E9DD; --acc: #F2A65A; --acc2: #E2672C; --r: 22px; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,7 +61,7 @@ a { color: inherit; text-decoration: none; }
 .tile:hover { transform: translateY(-3px); box-shadow: 0 18px 40px #17120E14; }
 .tile .im { position: relative; background: var(--ink); }
 .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.tile .im { aspect-ratio: 16/10; }
+.tile .im { aspect-ratio: 16/9; }
 .badge { position: absolute; right: 12px; top: 12px; padding: 4px 10px; border-radius: 8px; background: #fff; color: var(--text); font-size: 12px; font-weight: 700; }
 .tile .tx { padding: 20px 22px; }
 .tile h3 { font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; } .feat h3 { font-size: 30px; }
@@ -111,19 +111,39 @@ code { background: #17120E0f; padding: 2px 7px; border-radius: 6px; font-size: 0
   .more { grid-template-columns: 1fr; }
   .panel, footer { margin: 0; } .hero { padding-top: 80px; }
 }
-</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A free Office suite with an AI agent in every document", "description": "It opens and saves real .docx, .xlsx and .pptx files, and the AI edits the file itself, showing every change as tracked changes you can undo.", "datePublished": "2026-10-26", "image": "https://bilou26mada.github.io/agentic-insider/assets/cover-genoffice.jpg", "dateModified": "2026-10-26", "mainEntityOfPage": "https://bilou26mada.github.io/agentic-insider/tools/genoffice.html", "author": {"@type": "Organization", "name": "Agentic Insider", "url": "https://bilou26mada.github.io/agentic-insider/"}, "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": "https://bilou26mada.github.io/agentic-insider/assets/logo.png"}}, "about": {"@type": "SoftwareApplication", "name": "GenOffice", "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": "https://github.com/genspark-ai/genoffice"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bilou26mada.github.io/agentic-insider/"}, {"@type": "ListItem", "position": 2, "name": "GenOffice", "item": "https://bilou26mada.github.io/agentic-insider/tools/genoffice.html"}]}</script>
+
+.th { position: relative; padding: 70px 0 80px; text-align: center; overflow: hidden; }
+.th .ey { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.th .ey b { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.th h1 { margin: 20px auto 0; max-width: 980px; font-size: clamp(38px, 6.2vw, 74px); line-height: 1.02; }
+.th .lead { margin: 22px auto 0; max-width: 680px; font-size: 19px; opacity: .85; }
+.th .chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.th .chip { padding: 8px 15px; border-radius: 30px; border: 1px solid; font-size: 14px; font-weight: 600; }
+.th .ban { width: 100%; max-width: 1100px; display: block; margin: 44px auto 0; border-radius: 20px; }
+.th .shots { display: grid; gap: 18px; max-width: 1100px; margin: 22px auto 0; }
+.th .shots img { width: 100%; border-radius: 16px; border: 1px solid #ffffff1c; display: block; }
+.th .credit { margin-top: 22px; font-size: 13px; opacity: .6; }
+@media (max-width: 760px) { .th .shots { grid-template-columns: 1fr !important; } }
+
+.th { background: linear-gradient(160deg, #f7f8fc, #eef0fb 55%, #f6eefb); color: #0b0b12; font-family: "Plus Jakarta Sans", sans-serif; }
+.th .ey { color: #5b5f73; } .th .ey b { background: #0b0b12; border-radius: 4px; }
+.th h1 { font-weight: 800; letter-spacing: -0.035em; }
+.th h1 em { font-style: normal; background: linear-gradient(90deg, #4f46e5, #c026d3); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.th .apps { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.th .apps span { padding: 8px 14px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px #0000000f; font-weight: 700; font-size: 15px; }
+.th .apps i { display: inline-block; width: 22px; height: 22px; border-radius: 6px; margin-right: 8px; vertical-align: -5px; }
+.th .shots { grid-template-columns: 1fr 1fr; } .th .shots img, .th .ban { box-shadow: 0 30px 60px #1b1b4a26; border: 0; }
+.th .chip { background: #fff; border-color: #e3e5ef; color: #2b2d3a; }</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A free Office suite with an AI agent in every document", "description": "It opens and saves real .docx, .xlsx and .pptx files, and the AI edits the file itself, showing every change as tracked changes you can undo.", "datePublished": "2026-10-26", "image": "https://bilou26mada.github.io/agentic-insider/assets/cover-genoffice.jpg", "dateModified": "2026-10-26", "mainEntityOfPage": "https://bilou26mada.github.io/agentic-insider/tools/genoffice.html", "author": {"@type": "Organization", "name": "Agentic Insider", "url": "https://bilou26mada.github.io/agentic-insider/"}, "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": "https://bilou26mada.github.io/agentic-insider/assets/logo.png"}}, "about": {"@type": "SoftwareApplication", "name": "GenOffice", "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": "https://github.com/genspark-ai/genoffice"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bilou26mada.github.io/agentic-insider/"}, {"@type": "ListItem", "position": 2, "name": "GenOffice", "item": "https://bilou26mada.github.io/agentic-insider/tools/genoffice.html"}]}</script>
 </head><body>
 <header class="nav"><div class="wrap"><a class="brand" href="../index.html"><img src="../assets/logo-128.png" width="34" height="34" alt="Agentic Insider logo">Agentic Insider</a>
 <nav class="links"><a href="../index.html#drops">Tools</a><a href="../index.html#how">How it works</a><a href="../index.html#reels">Reels</a><a href="../index.html#faq">FAQ</a></nav>
 <a class="btn light cta" href="https://www.instagram.com/agentic_insider/">Follow</a></div></header>
-<main class="panel" style="margin-top:24px"><div class="wrap"><div class="art"><article>
+<section class="th"><div class="wrap"><span class="ey"><b></b>Genspark · Open source</span><h1>GenOffice: the open-source <em>AI Office suite</em></h1><p class="lead">It opens and saves real .docx, .xlsx and .pptx files, and the AI edits the file itself, showing every change as tracked changes you can undo.</p><div class="apps"><span><i style="background:#2b6cb0"></i>Docs</span><span><i style="background:#2f855a"></i>Sheets</span><span><i style="background:#c53030"></i>Slides</span><span><i style="background:#e53e3e"></i>PDF</span><span><i style="background:#6b46c1"></i>Markdown</span><span><i style="background:#dd6b20"></i>HTML</span></div><div class="chips"><span class="chip">★ 10.8K on GitHub</span><span class="chip">macOS · Windows · Linux</span><span class="chip">Apache 2.0</span></div><img class="ban" src="../assets/official/genoffice-hero.jpg" alt="GenOffice official banner"><div class="shots"><img src="../assets/official/genoffice-docs.jpg" alt="GenOffice official screenshot" loading="lazy"><img src="../assets/official/genoffice-sheets.jpg" alt="GenOffice official screenshot" loading="lazy"></div><p class="credit">Images: genspark-ai/genoffice repository. Agentic Insider is not affiliated with Genspark.</p></div></section><main class="panel" style="margin-top:0;border-radius:0"><div class="wrap"><div class="art"><article>
 <div class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#drops">Tools</a> / GenOffice</div>
-<h1>A free Office suite with an AI agent in every document</h1><p class="lead">It opens and saves real .docx, .xlsx and .pptx files, and the AI edits the file itself, showing every change as tracked changes you can undo.</p>
-<img class="cover" src="../assets/genoffice.jpg" alt="A free Office suite with an AI agent in every document">
-<h2>Why it matters</h2><ul><li>Runs on Mac, Windows and Linux</li><li>PDF to Word, Excel or PowerPoint conversion on your own computer</li><li>Bring your own key for Claude, ChatGPT, Gemini, DeepSeek or a local model</li></ul>
+<h2 style="margin-top:18px">Why it matters</h2><ul><li>Runs on Mac, Windows and Linux</li><li>PDF to Word, Excel or PowerPoint conversion on your own computer</li><li>Bring your own key for Claude, ChatGPT, Gemini, DeepSeek or a local model</li></ul>
 <h2>How to try it</h2><ol><li>Download the installer for your system from the latest release.</li><li>Open any Word, Excel or PowerPoint file.</li><li>Ask the AI for a change and review it as tracked changes.</li><li>Star a folder of documents and ask questions across them, with the source file for every answer.</li></ol>
 <h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc2);font-weight:600" href="https://github.com/genspark-ai/genoffice" rel="nofollow">github.com/genspark-ai/genoffice</a></p>
-<h2>More tools</h2><div class="more"><a class="tile " data-tag="Agents" href="google-artemis.html"><div class="im"><img src="../assets/cover-google-artemis.jpg" width="1200" height="750" alt="ARTEMIS: Google&#x27;s open-source AI uses an Android phone like a human" loading="lazy"><span class="badge">Agents</span></div><div class="tx"><h3>Google&#x27;s open-source AI uses an Android phone like a human</h3><div class="meta">ARTEMIS · Google · ★ 14.8K · Oct 26, 2026</div></div></a><a class="tile " data-tag="3D & design" href="img2threejs.html"><div class="im"><img src="../assets/cover-img2threejs.jpg" width="1200" height="750" alt="img2threejs: One photo in, a 3D model written entirely in code out" loading="lazy"><span class="badge">3D & design</span></div><div class="tx"><h3>One photo in, a 3D model written entirely in code out</h3><div class="meta">img2threejs · Open source · ★ 19.2K · Oct 26, 2026</div></div></a></div>
+<h2>More tools</h2><div class="more"><a class="tile " data-tag="Agents" href="google-artemis.html"><div class="im"><img src="../assets/cover-google-artemis.jpg" width="1600" height="900" alt="ARTEMIS: Google&#x27;s open-source AI uses an Android phone like a human" loading="lazy"><span class="badge">Agents</span></div><div class="tx"><h3>Google&#x27;s open-source AI uses an Android phone like a human</h3><div class="meta">ARTEMIS · Google · ★ 14.8K · Oct 26, 2026</div></div></a><a class="tile " data-tag="3D & design" href="img2threejs.html"><div class="im"><img src="../assets/cover-img2threejs.jpg" width="1600" height="900" alt="img2threejs: One photo in, a 3D model written entirely in code out" loading="lazy"><span class="badge">3D & design</span></div><div class="tx"><h3>One photo in, a 3D model written entirely in code out</h3><div class="meta">img2threejs · Open source · ★ 19.2K · Oct 26, 2026</div></div></a></div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>GenOffice</dd><dt>By</dt><dd>Genspark</dd>
 <dt>Stars</dt><dd>★ 10.8K</dd><dt>License</dt><dd>Apache 2.0</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>2 min install</dd>
 <dt>Good for</dt><dd>Reports, spreadsheets and decks you edit with AI</dd><dt>You need</dt><dd>Mac, Windows or Linux</dd></dl>

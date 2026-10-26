@@ -12,7 +12,7 @@
 <link rel="icon" href="../assets/logo-128.png"><link rel="apple-touch-icon" href="../assets/logo-128.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"><style>
 :root { --ink: #0B0B0D; --ink2: #15151A; --paper: #FAF7F2; --card: #FFFFFF; --line: #ECE6DC; --text: #17120E; --mute: #6B6258;
   --light: #F3E9DD; --acc: #F2A65A; --acc2: #E2672C; --r: 22px; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,7 +61,7 @@ a { color: inherit; text-decoration: none; }
 .tile:hover { transform: translateY(-3px); box-shadow: 0 18px 40px #17120E14; }
 .tile .im { position: relative; background: var(--ink); }
 .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.tile .im { aspect-ratio: 16/10; }
+.tile .im { aspect-ratio: 16/9; }
 .badge { position: absolute; right: 12px; top: 12px; padding: 4px 10px; border-radius: 8px; background: #fff; color: var(--text); font-size: 12px; font-weight: 700; }
 .tile .tx { padding: 20px 22px; }
 .tile h3 { font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; } .feat h3 { font-size: 30px; }
@@ -111,19 +111,37 @@ code { background: #17120E0f; padding: 2px 7px; border-radius: 6px; font-size: 0
   .more { grid-template-columns: 1fr; }
   .panel, footer { margin: 0; } .hero { padding-top: 80px; }
 }
-</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "One photo in, a 3D model written entirely in code out", "description": "Give your AI coding agent one reference image and it rebuilds the object as a Three.js model from basic shapes and procedural textures, ready to animate.", "datePublished": "2026-10-26", "image": "https://bilou26mada.github.io/agentic-insider/assets/cover-img2threejs.jpg", "dateModified": "2026-10-26", "mainEntityOfPage": "https://bilou26mada.github.io/agentic-insider/tools/img2threejs.html", "author": {"@type": "Organization", "name": "Agentic Insider", "url": "https://bilou26mada.github.io/agentic-insider/"}, "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": "https://bilou26mada.github.io/agentic-insider/assets/logo.png"}}, "about": {"@type": "SoftwareApplication", "name": "img2threejs", "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": "https://github.com/img2threejs/img2threejs"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bilou26mada.github.io/agentic-insider/"}, {"@type": "ListItem", "position": 2, "name": "img2threejs", "item": "https://bilou26mada.github.io/agentic-insider/tools/img2threejs.html"}]}</script>
+
+.th { position: relative; padding: 70px 0 80px; text-align: center; overflow: hidden; }
+.th .ey { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.th .ey b { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.th h1 { margin: 20px auto 0; max-width: 980px; font-size: clamp(38px, 6.2vw, 74px); line-height: 1.02; }
+.th .lead { margin: 22px auto 0; max-width: 680px; font-size: 19px; opacity: .85; }
+.th .chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.th .chip { padding: 8px 15px; border-radius: 30px; border: 1px solid; font-size: 14px; font-weight: 600; }
+.th .ban { width: 100%; max-width: 1100px; display: block; margin: 44px auto 0; border-radius: 20px; }
+.th .shots { display: grid; gap: 18px; max-width: 1100px; margin: 22px auto 0; }
+.th .shots img { width: 100%; border-radius: 16px; border: 1px solid #ffffff1c; display: block; }
+.th .credit { margin-top: 22px; font-size: 13px; opacity: .6; }
+@media (max-width: 760px) { .th .shots { grid-template-columns: 1fr !important; } }
+
+.th { background: radial-gradient(ellipse at 80% 10%, #2a1f5c, #07070d 60%); color: #fff; font-family: "Space Grotesk", sans-serif; }
+.th .ey { color: #a3a8c3; font-family: "JetBrains Mono", monospace; } .th .ey b { background: linear-gradient(135deg, #8b5cff, #38e8ff); }
+.th h1 { font-weight: 700; letter-spacing: -0.03em; }
+.th h1 em { font-style: normal; background: linear-gradient(90deg, #8b5cff, #38e8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.th .logo { width: 84px; display: block; margin: 0 auto 18px; filter: drop-shadow(0 0 30px #8b5cff88); }
+.th .shots { grid-template-columns: 1.4fr 0.6fr 1fr; align-items: center; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #8b5cff55; background: #8b5cff14; }</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "One photo in, a 3D model written entirely in code out", "description": "Give your AI coding agent one reference image and it rebuilds the object as a Three.js model from basic shapes and procedural textures, ready to animate.", "datePublished": "2026-10-26", "image": "https://bilou26mada.github.io/agentic-insider/assets/cover-img2threejs.jpg", "dateModified": "2026-10-26", "mainEntityOfPage": "https://bilou26mada.github.io/agentic-insider/tools/img2threejs.html", "author": {"@type": "Organization", "name": "Agentic Insider", "url": "https://bilou26mada.github.io/agentic-insider/"}, "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": "https://bilou26mada.github.io/agentic-insider/assets/logo.png"}}, "about": {"@type": "SoftwareApplication", "name": "img2threejs", "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": "https://github.com/img2threejs/img2threejs"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bilou26mada.github.io/agentic-insider/"}, {"@type": "ListItem", "position": 2, "name": "img2threejs", "item": "https://bilou26mada.github.io/agentic-insider/tools/img2threejs.html"}]}</script>
 </head><body>
 <header class="nav"><div class="wrap"><a class="brand" href="../index.html"><img src="../assets/logo-128.png" width="34" height="34" alt="Agentic Insider logo">Agentic Insider</a>
 <nav class="links"><a href="../index.html#drops">Tools</a><a href="../index.html#how">How it works</a><a href="../index.html#reels">Reels</a><a href="../index.html#faq">FAQ</a></nav>
 <a class="btn light cta" href="https://www.instagram.com/agentic_insider/">Follow</a></div></header>
-<main class="panel" style="margin-top:24px"><div class="wrap"><div class="art"><article>
+<section class="th"><div class="wrap"><img class="logo" src="../assets/official/img2threejs-logo.svg" alt="img2threejs logo"><span class="ey"><b></b>img2threejs · Open source</span><h1>One photo in. <em>A procedural 3D model out.</em></h1><p class="lead">Give your AI coding agent one reference image and it rebuilds the object as a Three.js model from basic shapes and procedural textures, ready to animate.</p><div class="chips"><span class="chip">★ 19.2K on GitHub</span><span class="chip">Three.js</span><span class="chip">Apache 2.0</span></div><img class="ban" src="../assets/official/img2threejs-og.jpg" alt="img2threejs official banner"><div class="shots"><img src="../assets/official/img2threejs-guitar.jpg" alt="img2threejs official screenshot" loading="lazy"><img src="../assets/official/img2threejs-cat.jpg" alt="img2threejs official screenshot" loading="lazy"><img src="../assets/official/img2threejs-game.jpg" alt="img2threejs official screenshot" loading="lazy"></div><p class="credit">Images: img2threejs repository and showcase. Agentic Insider is not affiliated with the project.</p></div></section><main class="panel" style="margin-top:0;border-radius:0"><div class="wrap"><div class="art"><article>
 <div class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#drops">Tools</a> / img2threejs</div>
-<h1>One photo in, a 3D model written entirely in code out</h1><p class="lead">Give your AI coding agent one reference image and it rebuilds the object as a Three.js model from basic shapes and procedural textures, ready to animate.</p>
-<img class="cover" src="../assets/img2threejs.jpg" alt="One photo in, a 3D model written entirely in code out">
-<h2>Why it matters</h2><ul><li>No 3D scan and no downloaded models</li><li>Moving parts come already separated, so you can animate right away</li><li>Live gallery: a guitar, a cat on Mars, game characters, SpaceX&#x27;s Starship</li></ul>
+<h2 style="margin-top:18px">Why it matters</h2><ul><li>No 3D scan and no downloaded models</li><li>Moving parts come already separated, so you can animate right away</li><li>Live gallery: a guitar, a cat on Mars, game characters, SpaceX&#x27;s Starship</li></ul>
 <h2>How to try it</h2><ol><li>Give your AI coding agent one reference image.</li><li>It studies the shapes and proportions.</li><li>It writes the model piece by piece and checks it against its own quality gates.</li><li>You get a TypeScript file you can drop into any website or game.</li></ol>
 <h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc2);font-weight:600" href="https://github.com/img2threejs/img2threejs" rel="nofollow">github.com/img2threejs/img2threejs</a></p>
-<h2>More tools</h2><div class="more"><a class="tile " data-tag="Agents" href="google-artemis.html"><div class="im"><img src="../assets/cover-google-artemis.jpg" width="1200" height="750" alt="ARTEMIS: Google&#x27;s open-source AI uses an Android phone like a human" loading="lazy"><span class="badge">Agents</span></div><div class="tx"><h3>Google&#x27;s open-source AI uses an Android phone like a human</h3><div class="meta">ARTEMIS · Google · ★ 14.8K · Oct 26, 2026</div></div></a><a class="tile " data-tag="Productivity" href="genoffice.html"><div class="im"><img src="../assets/cover-genoffice.jpg" width="1200" height="750" alt="GenOffice: A free Office suite with an AI agent in every document" loading="lazy"><span class="badge">Productivity</span></div><div class="tx"><h3>A free Office suite with an AI agent in every document</h3><div class="meta">GenOffice · Genspark · ★ 10.8K · Oct 26, 2026</div></div></a></div>
+<h2>More tools</h2><div class="more"><a class="tile " data-tag="Agents" href="google-artemis.html"><div class="im"><img src="../assets/cover-google-artemis.jpg" width="1600" height="900" alt="ARTEMIS: Google&#x27;s open-source AI uses an Android phone like a human" loading="lazy"><span class="badge">Agents</span></div><div class="tx"><h3>Google&#x27;s open-source AI uses an Android phone like a human</h3><div class="meta">ARTEMIS · Google · ★ 14.8K · Oct 26, 2026</div></div></a><a class="tile " data-tag="Productivity" href="genoffice.html"><div class="im"><img src="../assets/cover-genoffice.jpg" width="1600" height="900" alt="GenOffice: A free Office suite with an AI agent in every document" loading="lazy"><span class="badge">Productivity</span></div><div class="tx"><h3>A free Office suite with an AI agent in every document</h3><div class="meta">GenOffice · Genspark · ★ 10.8K · Oct 26, 2026</div></div></a></div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>img2threejs</dd><dt>By</dt><dd>Open source</dd>
 <dt>Stars</dt><dd>★ 19.2K</dd><dt>License</dt><dd>Apache 2.0</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>Works inside your AI coding agent</dd>
 <dt>Good for</dt><dd>Web 3D, games, product showcases</dd><dt>You need</dt><dd>An AI coding agent (Claude Code, Codex, Cursor)</dd></dl>

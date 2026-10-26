@@ -3,6 +3,7 @@
 # a reels strip, FAQ (FAQPage schema) and a full footer. Brand = the amber glow series.
 # python build.py -> index.html, tools/<slug>.html, sitemap.xml, robots.txt
 import html
+from _theme import THEMES, BASE_CSS, hero
 import json
 from datetime import date
 from pathlib import Path
@@ -106,7 +107,7 @@ a { color: inherit; text-decoration: none; }
 .tile:hover { transform: translateY(-3px); box-shadow: 0 18px 40px #17120E14; }
 .tile .im { position: relative; background: var(--ink); }
 .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.tile .im { aspect-ratio: 16/10; }
+.tile .im { aspect-ratio: 16/9; }
 .badge { position: absolute; right: 12px; top: 12px; padding: 4px 10px; border-radius: 8px; background: #fff; color: var(--text); font-size: 12px; font-weight: 700; }
 .tile .tx { padding: 20px 22px; }
 .tile h3 { font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; } .feat h3 { font-size: 30px; }
@@ -165,7 +166,7 @@ document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
 </script>"""
 
 
-def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630):
+def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630, extra_css="", font=""):
     rel = "../" if "/" in path else ""
     url = f"{BASE}/{path}"
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x)}</script>' for x in ld)
@@ -183,7 +184,7 @@ def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630
 <link rel="icon" href="{rel}assets/logo-128.png"><link rel="apple-touch-icon" href="{rel}assets/logo-128.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>{CSS}</style>{lds}
+{f'<link href="https://fonts.googleapis.com/css2?family={font}&display=swap" rel="stylesheet">' if font else ""}<style>{CSS}{extra_css}</style>{lds}
 </head><body>
 <header class="nav"><div class="wrap"><a class="brand" href="{rel}index.html"><img src="{rel}assets/logo-128.png" width="34" height="34" alt="Agentic Insider logo">Agentic Insider</a>
 <nav class="links"><a href="{rel}index.html#drops">Tools</a><a href="{rel}index.html#how">How it works</a><a href="{rel}index.html#reels">Reels</a><a href="{rel}index.html#faq">FAQ</a></nav>
@@ -198,7 +199,7 @@ def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630
 
 
 def tile(t, cls=""):
-    return (f'<a class="tile {cls}" data-tag="{t["tag"]}" href="tools/{t["slug"]}.html"><div class="im"><img src="assets/{t["cover"]}" width="1200" height="750" alt="{e(t["name"])}: {e(t["hook"])}" loading="lazy">'
+    return (f'<a class="tile {cls}" data-tag="{t["tag"]}" href="tools/{t["slug"]}.html"><div class="im"><img src="assets/{t["cover"]}" width="1600" height="900" alt="{e(t["name"])}: {e(t["hook"])}" loading="lazy">'
             f'<span class="badge">{t["tag"]}</span></div><div class="tx"><h3>{e(t["hook"])}</h3>'
             + (f'<p>{e(t["lead"])}</p>' if cls == "feat" else "")
             + f'<div class="meta">{t["name"]} · {t["by"]} · ★ {t["stars"]}K · {fmt_date(t["date"])}</div></div></a>')
@@ -221,7 +222,7 @@ home = f"""<section class="hero"><div class="orb"></div><div class="wrap">
 <div class="step"><b>1</b><h3>We find it</h3><p>We track GitHub and the big AI labs for tools that actually do something new.</p></div>
 <div class="step"><b>2</b><h3>We check it</h3><p>Every number comes from the official repo: stars, license, benchmarks, install steps.</p></div>
 <div class="step"><b>3</b><h3>You try it</h3><p>A 60-second reel to see it, and a page here with the steps and the official link.</p></div></div></section>
-<section class="sec" id="reels"><h2>Watch the reels</h2><p class="sub">Short, visual and made entirely with code.</p><div class="reels">
+<section class="sec" id="reels"><h2>Watch the reels</h2><p class="sub">Short, visual, straight to the point.</p><div class="reels">
 {"".join(f'<a class="reel" href="{u}"><img src="assets/{i}" width="540" height="960" alt="Reel: {e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
 <section class="sec" id="faq"><h2>Questions</h2><div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)}</div></section>
 <section class="band"><h2>One new AI tool a day.</h2><p>Follow Agentic Insider and never be the last to know.</p>
@@ -236,11 +237,9 @@ Path("index.html").write_text(shell("Agentic Insider: Open-Source AI Tools, Expl
 
 for t in TOOLS:
     others = [o for o in TOOLS if o is not t]
-    body = f"""<main class="panel" style="margin-top:24px"><div class="wrap"><div class="art"><article>
+    body = hero(t) + f"""<main class="panel" style="margin-top:0;border-radius:0"><div class="wrap"><div class="art"><article>
 <div class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#drops">Tools</a> / {e(t["name"])}</div>
-<h1>{e(t["hook"])}</h1><p class="lead">{e(t["lead"])}</p>
-<img class="cover" src="../assets/{t["img"]}" alt="{e(t["hook"])}">
-<h2>Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
+<h2 style="margin-top:18px">Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
 <h2>How to try it</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>
 <h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc2);font-weight:600" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
 <h2>More tools</h2><div class="more">{"".join(tile(o).replace('href="tools/', 'href="').replace('src="assets/', 'src="../assets/') for o in others[:2])}</div>
@@ -259,7 +258,7 @@ for t in TOOLS:
         {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
         {"@type": "ListItem", "position": 2, "name": t["name"], "item": f"{BASE}/tools/{t['slug']}.html"}]}
     Path(f"tools/{t['slug']}.html").write_text(shell(t["seo"], t["lead"], f"tools/{t['slug']}.html", body,
-                                                     [art, crumbs], f"assets/{t['cover']}", 1200, 750), encoding="utf-8")
+                                                     [art, crumbs], f"assets/{t['cover']}", 1200, 750, BASE_CSS + THEMES[t['slug']]['css'], THEMES[t['slug']]['font']), encoding="utf-8")
 
 urls = [(BASE + "/", max(t['date'] for t in TOOLS))] + [(f"{BASE}/tools/{t['slug']}.html", t['date']) for t in TOOLS]
 Path("sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bilou26mada.github.io/agentic-insider/sitemap.xml

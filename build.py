@@ -45,7 +45,6 @@ TOOLS = [
          good="Web 3D, games, product showcases", needs="An AI coding agent (Claude Code, Codex, Cursor)"),
 ]
 REELS = [("reel-glow3.jpg", "What your AI is doing while you wait", "https://www.instagram.com/reel/De7UCLhzZNC/"),
-         ("reel-glow1.jpg", "How an AI agent works, in 7 moves", IG),
          ("reel-drift.jpg", "AI copied one photo 20 times", IG),
          ("reel-team.jpg", "My whole team is 7 Claude tabs", IG)]
 FAQ = [("What is Agentic Insider?", "A daily media on open-source AI tools and AI agents. Every tool gets a 60-second video on Instagram and Facebook, and a page here with what it does, how to install it and the official link."),
@@ -59,175 +58,159 @@ e = html.escape
 fmt_date = lambda d: date.fromisoformat(d).strftime("%b %d, %Y").replace(" 0", " ")
 
 CSS = """
-:root { --ink: #0B0B0D; --ink2: #15151A; --paper: #FAF7F2; --card: #FFFFFF; --line: #ECE6DC; --text: #17120E; --mute: #6B6258;
-  --light: #F3E9DD; --acc: #F2A65A; --acc2: #E2672C; --r: 22px; }
+:root { --paper: #FBFAF7; --ink: #111111; --soft: #4A4A4A; --mute: #7A7670; --rule: #1111111f; --rule2: #111111; --acc: #C2410C; --tint: #F3EFE8; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: var(--ink); color: var(--light); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { background: var(--paper); color: var(--ink); font-family: "Public Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
-.wrap { max-width: 1160px; margin: 0 auto; padding: 0 22px; }
-/* nav */
-.nav { position: sticky; top: 0; z-index: 20; background: #0B0B0Dd9; backdrop-filter: blur(14px); border-bottom: 1px solid #ffffff12; }
-.nav .wrap { display: flex; align-items: center; height: 68px; gap: 28px; }
-.brand { display: flex; align-items: center; gap: 11px; font-weight: 700; font-size: 18px; white-space: nowrap; }
-.brand img { width: 34px; height: 34px; border-radius: 50%; }
-.links { display: flex; gap: 26px; font-size: 15px; color: #ffffffc0; }
-.links a:hover { color: #fff; }
-.nav .cta { margin-left: auto; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 15px; border: 1px solid #ffffff24; transition: .2s; }
-.btn:hover { transform: translateY(-1px); }
-.btn.pri { background: var(--acc); color: #1a1208; border-color: var(--acc); box-shadow: 0 8px 30px #F2A65A40; }
-.btn.light { background: #fff; color: var(--ink); border-color: #fff; }
-.btn.ghost { color: var(--text); border-color: var(--line); background: var(--card); }
-/* hero */
-.hero { position: relative; text-align: center; padding: 110px 0 70px; overflow: hidden; }
-.orb { position: absolute; left: 50%; top: -120px; width: 640px; height: 640px; transform: translateX(-50%); border-radius: 50%;
-  background: radial-gradient(circle, #FFC86155 0%, #F08A2B26 35%, transparent 68%); filter: blur(10px); pointer-events: none; animation: breathe 7s ease-in-out infinite; }
-@keyframes breathe { 50% { transform: translateX(-50%) scale(1.08); opacity: .8; } }
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border: 1px solid #ffffff1f; border-radius: 30px; font-size: 13px; color: #ffffffb0; background: #ffffff08; }
-.eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: #34A853; box-shadow: 0 0 10px #34A853; }
-.hero h1 { position: relative; margin: 26px auto 0; max-width: 900px; font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
-  font-size: clamp(46px, 8vw, 92px); line-height: 0.98; letter-spacing: -0.02em; color: #fff; }
-.hero h1 em { background: linear-gradient(95deg, #FFD08A, #F2A65A 45%, #E8602C); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero p { position: relative; margin: 24px auto 0; max-width: 560px; font-size: 19px; color: #ffffffb8; }
-.hero .btns { position: relative; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-.proof { position: relative; display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 46px; margin-top: 58px; color: #ffffff8c; font-size: 14px; }
-.proof b { display: block; color: #fff; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
-/* light panel */
-.panel { background: var(--paper); color: var(--text); border-radius: 34px 34px 0 0; margin: 0 14px; padding: 80px 0 30px; }
-.panel h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; line-height: 1.1; text-align: center; }
-.panel .sub { text-align: center; color: var(--mute); font-size: 18px; margin-top: 10px; }
-.tabs { display: flex; justify-content: center; gap: 6px; margin: 28px auto 38px; padding: 5px; width: max-content; max-width: 100%; overflow-x: auto;
-  background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
-.tabs button { border: 0; background: none; font: 600 15px Inter, sans-serif; padding: 9px 16px; border-radius: 10px; color: var(--mute); cursor: pointer; white-space: nowrap; }
-.tabs button.on { background: var(--ink); color: #fff; }
-.drops { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
-.drops .side { display: grid; gap: 22px; }
-.tile { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; transition: .25s; }
-.tile:hover { transform: translateY(-3px); box-shadow: 0 18px 40px #17120E14; }
-.tile .im { position: relative; background: var(--ink); }
-.tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.tile .im { aspect-ratio: 16/9; }
-.badge { position: absolute; right: 12px; top: 12px; padding: 4px 10px; border-radius: 8px; background: #fff; color: var(--text); font-size: 12px; font-weight: 700; }
-.tile .tx { padding: 20px 22px; }
-.tile h3 { font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; } .feat h3 { font-size: 30px; }
-.tile .meta { margin-top: 10px; font-size: 13px; color: var(--mute); } .tile p { margin-top: 8px; color: var(--mute); }
-.hidden { display: none !important; }
-.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
-.step { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 28px; }
-.step b { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: #F2A65A26; color: var(--acc2); font-size: 18px; }
-.step h3 { margin-top: 16px; font-size: 20px; } .step p { margin-top: 6px; color: var(--mute); }
-.sec { padding-top: 90px; }
-.reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
-.reel { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 9/16; background: var(--ink); }
-.reel img { width: 100%; height: 100%; object-fit: cover; transition: .3s; } .reel:hover img { transform: scale(1.04); }
-.reel span { position: absolute; left: 0; right: 0; bottom: 0; padding: 50px 16px 16px; color: #fff; font-weight: 600; font-size: 15px; line-height: 1.3;
-  background: linear-gradient(transparent, #000d); }
-.reel::after { content: "▶"; position: absolute; right: 12px; top: 12px; width: 34px; height: 34px; border-radius: 50%; background: #ffffffd9; color: var(--ink);
-  display: grid; place-items: center; font-size: 12px; }
-.faq { max-width: 760px; margin: 40px auto 0; }
-.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; margin-bottom: 12px; }
-.faq summary { font-weight: 600; font-size: 17px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; }
-.faq summary::after { content: "+"; color: var(--acc2); font-size: 22px; line-height: 1; } .faq details[open] summary::after { content: "–"; }
-.faq p { margin-top: 10px; color: var(--mute); }
-.band { margin: 90px 0 60px; padding: 56px 30px; border-radius: 28px; text-align: center; color: #fff;
-  background: radial-gradient(ellipse at 50% 0%, #F08A2B55, transparent 60%), var(--ink); }
-.band h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(34px, 5vw, 54px); }
-.band p { color: #ffffffb0; margin: 10px 0 26px; }
-footer { background: var(--paper); color: var(--mute); margin: 0 14px; padding: 0 0 40px; font-size: 14px; }
-footer .cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; border-top: 1px solid var(--line); padding-top: 34px; }
-footer b { color: var(--text); display: block; margin-bottom: 8px; } footer a { display: block; margin: 4px 0; } footer a:hover { color: var(--text); }
+img { height: auto; max-width: 100%; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.serif { font-family: "Newsreader", Georgia, serif; }
+/* masthead */
+.top { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--mute); }
+.top .wrap { display: flex; justify-content: space-between; height: 38px; align-items: center; }
+.top a:hover { color: var(--ink); }
+.mast { text-align: center; padding: 30px 0 18px; }
+.mast .name { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: clamp(42px, 7vw, 76px); letter-spacing: -0.03em; line-height: 1; }
+.mast .tag { margin-top: 8px; font-size: 15px; color: var(--soft); }
+.sections { border-top: 2px solid var(--rule2); border-bottom: 1px solid var(--rule); }
+.sections .wrap { display: flex; justify-content: center; gap: 28px; height: 46px; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+.sections a:hover, .sections a.on { color: var(--acc); }
+.slim { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.slim .wrap { display: flex; align-items: center; height: 58px; gap: 22px; }
+.slim .logo { font-family: "Newsreader", serif; font-weight: 600; font-size: 24px; letter-spacing: -0.02em; }
+.slim nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 600; }
+.slim nav a:hover { color: var(--acc); }
+/* labels, buttons */
+.kick { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--acc); }
+.meta { font-size: 13px; color: var(--mute); }
+.btn { display: inline-block; padding: 11px 18px; font-weight: 600; font-size: 15px; border: 1px solid var(--ink); border-radius: 3px; }
+.btn.pri { background: var(--ink); color: var(--paper); }
+.btn:hover { background: var(--acc); border-color: var(--acc); color: #fff; }
+/* front page */
+.front { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0; padding: 34px 0 40px; border-bottom: 1px solid var(--rule); }
+.lead-story { padding-right: 34px; border-right: 1px solid var(--rule); }
+.lead-story img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.lead-story h1 { font-family: "Newsreader", serif; font-weight: 600; font-size: clamp(32px, 4.2vw, 50px); line-height: 1.06; letter-spacing: -0.02em; margin: 16px 0 12px; }
+.lead-story h1 a:hover, .item h3 a:hover, .list h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.lead-story p { font-size: 19px; color: var(--soft); max-width: 720px; }
+.rail { padding-left: 30px; }
+.rail .item { padding: 0 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--rule); }
+.rail .item:last-child { border-bottom: 0; margin-bottom: 0; }
+.rail img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; margin-bottom: 12px; }
+.item h3 { font-family: "Newsreader", serif; font-weight: 600; font-size: 23px; line-height: 1.18; letter-spacing: -0.01em; margin: 6px 0 6px; }
+.block { padding: 40px 0; border-bottom: 1px solid var(--rule); }
+.block > .head { display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--rule2); padding-top: 10px; margin-bottom: 22px; }
+.block > .head h2 { font-family: "Newsreader", serif; font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.list article { border-top: 1px solid var(--rule); padding-top: 14px; }
+.list .n { font-family: "Newsreader", serif; font-size: 34px; color: var(--acc); line-height: 1; }
+.list h3 { font-family: "Newsreader", serif; font-size: 21px; line-height: 1.2; margin: 8px 0 6px; font-weight: 600; }
+.reels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; }
+.reels a { display: block; } .reels img { width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block; }
+.reels span { display: block; margin-top: 10px; font-family: "Newsreader", serif; font-weight: 600; font-size: 18px; line-height: 1.25; }
+.reels a:hover span { color: var(--acc); }
+.about { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+.about p { font-size: 19px; color: var(--soft); margin-bottom: 14px; max-width: 700px; }
+.about dl { font-size: 16px; } .about dt { font-weight: 700; margin-top: 16px; } .about dd { color: var(--soft); }
+.follow { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 30px; background: var(--tint); margin: 40px 0; }
+.follow h2 { font-family: "Newsreader", serif; font-size: 28px; font-weight: 600; } .follow p { color: var(--soft); }
+.follow .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+footer { border-top: 2px solid var(--rule2); padding: 26px 0 40px; font-size: 14px; color: var(--mute); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer .logo { font-family: "Newsreader", serif; font-weight: 600; font-size: 22px; color: var(--ink); }
+footer nav { display: flex; gap: 18px; } footer a:hover { color: var(--ink); }
 /* article */
-.crumbs { font-size: 14px; color: var(--mute); } .crumbs a:hover { color: var(--text); }
-.art { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 50px; align-items: start; }
-.art h1 { font-size: clamp(32px, 4.6vw, 50px); line-height: 1.08; letter-spacing: -0.03em; margin: 14px 0 18px; }
-.art .lead { font-size: 21px; color: #3a322b; }
-.art img.cover { width: 100%; border-radius: var(--r); border: 1px solid var(--line); margin: 30px 0 10px; display: block; }
-.art h2 { font-size: 26px; letter-spacing: -0.02em; margin: 40px 0 12px; text-align: left; }
+.panel { background: var(--paper); }
+.crumbs { font-size: 13px; color: var(--mute); padding-top: 26px; } .crumbs a:hover { color: var(--ink); }
+.art { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; padding-bottom: 20px; }
+.art article { max-width: 700px; }
+.art h2 { font-family: "Newsreader", serif; font-size: 28px; font-weight: 600; letter-spacing: -0.01em; margin: 38px 0 12px; }
 .art ul, .art ol { padding-left: 22px; font-size: 18px; } .art li { margin: 10px 0; }
-code { background: #17120E0f; padding: 2px 7px; border-radius: 6px; font-size: 0.9em; }
-.glance { position: sticky; top: 96px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; }
-.glance h4 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin-bottom: 10px; }
-.glance dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 15px; } .glance dt { color: var(--mute); } .glance dd { font-weight: 600; }
-.glance .btn { width: 100%; justify-content: center; margin-top: 18px; }
-.more { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
-@media (max-width: 900px) {
-  .links { display: none; } .drops, .art { grid-template-columns: 1fr; } .how { grid-template-columns: 1fr; }
-  .reels { grid-template-columns: repeat(2, 1fr); } footer .cols { grid-template-columns: 1fr; } .glance { position: static; }
-  .more { grid-template-columns: 1fr; }
-  .panel, footer { margin: 0; } .hero { padding-top: 80px; }
+.art .byline { margin-top: 20px; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 14px; color: var(--mute); }
+code { background: #1111110d; padding: 1px 6px; font-size: 0.88em; border-radius: 3px; }
+.glance { position: sticky; top: 82px; border-top: 2px solid var(--rule2); padding-top: 12px; margin-top: 26px; }
+.glance h4 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+.glance dl { display: grid; grid-template-columns: auto 1fr; font-size: 15px; }
+.glance dt, .glance dd { padding: 9px 0; border-bottom: 1px solid var(--rule); } .glance dt { color: var(--mute); padding-right: 14px; } .glance dd { font-weight: 600; }
+.glance .btn { display: block; text-align: center; margin-top: 16px; }
+.more { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.more img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; margin-bottom: 10px; }
+.hero { text-align: center; padding: 90px 0; } .hero h1 { font-family: "Newsreader", serif; font-size: 54px; font-weight: 600; } .hero p { color: var(--soft); margin: 10px 0 24px; }
+.hidden { display: none !important; }
+@media (max-width: 860px) {
+  .front, .about, .art { grid-template-columns: 1fr; } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
+  .list, .more { grid-template-columns: 1fr; } .reels { grid-template-columns: repeat(2, 1fr); } .sections .wrap { gap: 18px; overflow-x: auto; justify-content: flex-start; }
+  .top .ed { display: none; } .follow { flex-direction: column; align-items: flex-start; } .glance { position: static; } .slim nav a.x { display: none; }
 }
 """
-JS = """<script>
-document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
-  document.querySelectorAll('[data-tag]').forEach(t => t.classList.toggle('hidden', b.dataset.f !== 'All' && t.dataset.tag !== b.dataset.f));
-});
-</script>"""
+JS = ""
 
 
 def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630, extra_css="", font=""):
     rel = "../" if "/" in path else ""
     url = f"{BASE}/{path}"
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x)}</script>' for x in ld)
+    today = date.today().strftime("%A, %B %d, %Y").replace(" 0", " ")
+    if rel:  # article pages: slim sticky bar
+        header = (f'<header class="slim"><div class="wrap"><a class="logo" href="../index.html">Agentic Insider</a>'
+                  f'<nav><a class="x" href="../index.html#latest">Latest</a><a class="x" href="../index.html#reels">Reels</a><a href="{IG}">Instagram</a></nav></div></header>')
+    else:
+        header = (f'<div class="top"><div class="wrap"><span class="ed">{today}</span><span><a href="{IG}">Instagram</a> · <a href="{FB}">Facebook</a> · <a href="feed.xml">RSS</a></span></div></div>'
+                  f'<header class="mast"><div class="wrap"><a class="name" href="index.html">Agentic Insider</a>'
+                  f'<div class="tag">The open-source AI tools worth your time, explained.</div></div></header>'
+                  f'<nav class="sections"><div class="wrap"><a class="on" href="#latest">Latest</a><a href="#tools">All tools</a><a href="#reels">Reels</a><a href="#about">About</a></div></nav>')
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="alternate" type="application/rss+xml" title="Agentic Insider" href="{BASE}/feed.xml">
-<meta name="theme-color" content="#0B0B0D">
+<meta name="theme-color" content="#FBFAF7">
 <meta property="og:site_name" content="Agentic Insider"><meta property="og:type" content="{'article' if rel else 'website'}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE}/{img}"><meta property="og:image:width" content="{iw}"><meta property="og:image:height" content="{ih}">
 <meta property="og:image:alt" content="{e(title)}"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{rel}assets/logo-128.png"><link rel="apple-touch-icon" href="{rel}assets/logo-128.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 {f'<link href="https://fonts.googleapis.com/css2?family={font}&display=swap" rel="stylesheet">' if font else ""}<style>{CSS}{extra_css}</style>{lds}
 </head><body>
-<header class="nav"><div class="wrap"><a class="brand" href="{rel}index.html"><img src="{rel}assets/logo-128.png" width="34" height="34" alt="Agentic Insider logo">Agentic Insider</a>
-<nav class="links"><a href="{rel}index.html#drops">Tools</a><a href="{rel}index.html#how">How it works</a><a href="{rel}index.html#reels">Reels</a><a href="{rel}index.html#faq">FAQ</a></nav>
-<a class="btn light cta" href="{IG}">Follow</a></div></header>
+{header}
 {body}
-<footer><div class="wrap cols">
-<div><b>Agentic Insider</b>Open-source AI tools and agents, explained in 60 seconds. Every fact is checked against the project's official repository.</div>
-<div><b>Explore</b><a href="{rel}index.html#drops">Latest tools</a><a href="{rel}index.html#reels">Reels</a><a href="{rel}index.html#faq">FAQ</a></div>
-<div><b>Follow</b><a href="{IG}" rel="me">Instagram</a><a href="{FB}" rel="me">Facebook</a></div>
-</div><div class="wrap" style="margin-top:26px">© {date.today().year} Agentic Insider</div></footer>
-{JS}</body></html>"""
+<footer><div class="wrap"><a class="logo" href="{rel}index.html">Agentic Insider</a>
+<nav><a href="{rel}index.html#about">About</a><a href="{IG}" rel="me">Instagram</a><a href="{FB}" rel="me">Facebook</a><a href="{rel}feed.xml">RSS</a></nav>
+<span>© {date.today().year} Agentic Insider. Facts checked against each project's official repository.</span></div></footer>
+</body></html>"""
 
 
-def tile(t, cls=""):
-    return (f'<a class="tile {cls}" data-tag="{t["tag"]}" href="tools/{t["slug"]}.html"><div class="im"><img src="assets/{t["cover"]}" width="1600" height="900" alt="{e(t["name"])}: {e(t["hook"])}" loading="lazy">'
-            f'<span class="badge">{t["tag"]}</span></div><div class="tx"><h3>{e(t["hook"])}</h3>'
-            + (f'<p>{e(t["lead"])}</p>' if cls == "feat" else "")
-            + f'<div class="meta">{t["name"]} · {t["by"]} · ★ {t["stars"]}K · {fmt_date(t["date"])}</div></div></a>')
+def tile(t, cls=""):  # used for "more tools" on article pages
+    return (f'<a class="item" href="tools/{t["slug"]}.html"><img src="assets/{t["cover"]}" width="1600" height="900" alt="{e(t["name"])}" loading="lazy">'
+            f'<div class="kick">{t["tag"]}</div><h3>{e(t["hook"])}</h3><div class="meta">{t["by"]} · {fmt_date(t["date"])}</div></a>')
 
 
-tags = ["All"] + sorted({t["tag"] for t in TOOLS})
-stars = sum(t["stars"] for t in TOOLS)
-home = f"""<section class="hero"><div class="orb"></div><div class="wrap">
-<span class="eyebrow"><i></i>New tool every day</span>
-<h1>Open-source AI tools, <em>explained in 60 seconds.</em></h1>
-<p>We find the AI tools and agents worth your time, check them against the source, and show you how to use them. Free, no hype.</p>
-<div class="btns"><a class="btn pri" href="#drops">Browse the tools</a><a class="btn" href="{IG}">Watch on Instagram</a></div>
-<div class="proof"><div><b>{len(TOOLS)}</b>tools explained</div><div><b>{stars:.1f}K</b>GitHub stars covered</div><div><b>100%</b>open source</div><div><b>60 s</b>per video</div></div>
-</div></section>
-<main class="panel"><div class="wrap">
-<section id="drops"><h2>Latest drops</h2><p class="sub">Every open-source AI tool we covered, checked against the source.</p>
-<div class="tabs">{"".join(f'<button class="{"on" if x == "All" else ""}" data-f="{x}">{x}</button>' for x in tags)}</div>
-<div class="drops">{tile(TOOLS[0], "feat")}<div class="side">{"".join(tile(t) for t in TOOLS[1:])}</div></div></section>
-<section class="sec" id="how"><h2>How it works</h2><p class="sub">Three steps, every day.</p><div class="how">
-<div class="step"><b>1</b><h3>We find it</h3><p>We track GitHub and the big AI labs for tools that actually do something new.</p></div>
-<div class="step"><b>2</b><h3>We check it</h3><p>Every number comes from the official repo: stars, license, benchmarks, install steps.</p></div>
-<div class="step"><b>3</b><h3>You try it</h3><p>A 60-second reel to see it, and a page here with the steps and the official link.</p></div></div></section>
-<section class="sec" id="reels"><h2>Watch the reels</h2><p class="sub">Short, visual, straight to the point.</p><div class="reels">
-{"".join(f'<a class="reel" href="{u}"><img src="assets/{i}" width="540" height="960" alt="Reel: {e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
-<section class="sec" id="faq"><h2>Questions</h2><div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)}</div></section>
-<section class="band"><h2>One new AI tool a day.</h2><p>Follow Agentic Insider and never be the last to know.</p>
-<div class="btns" style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap"><a class="btn pri" href="{IG}">Follow on Instagram</a><a class="btn" href="{FB}">Follow on Facebook</a></div></section>
-</div></main>"""
+lead, rest = TOOLS[0], TOOLS[1:]
+home = f"""<main class="wrap">
+<section class="front" id="latest">
+<article class="lead-story"><a href="tools/{lead["slug"]}.html"><img src="assets/{lead["cover"]}" width="1600" height="900" alt="{e(lead["name"])}"></a>
+<div class="kick" style="margin-top:16px">{lead["tag"]} · {lead["by"]}</div>
+<h1><a href="tools/{lead["slug"]}.html">{e(lead["hook"])}</a></h1><p>{e(lead["lead"])}</p>
+<div class="meta" style="margin-top:12px">{fmt_date(lead["date"])} · ★ {lead["stars"]}K on GitHub · {lead["license"]}</div></article>
+<aside class="rail">{"".join(f'<article class="item"><a href="tools/{t["slug"]}.html"><img src="assets/{t["cover"]}" width="1600" height="900" alt="{e(t["name"])}" loading="lazy"></a>'
+                             f'<div class="kick">{t["tag"]} · {t["by"]}</div><h3><a href="tools/{t["slug"]}.html">{e(t["hook"])}</a></h3>'
+                             f'<div class="meta">{fmt_date(t["date"])} · ★ {t["stars"]}K</div></article>' for t in rest)}</aside>
+</section>
+<section class="block" id="tools"><div class="head"><h2>All tools</h2><span class="meta">{len(TOOLS)} covered so far</span></div><div class="list">
+{"".join(f'<article><div class="n">{k + 1:02d}</div><h3><a href="tools/{t["slug"]}.html">{e(t["name"])}: {e(t["hook"])}</a></h3>'
+         f'<div class="meta">{t["by"]} · {t["license"]} · ★ {t["stars"]}K</div></article>' for k, t in enumerate(TOOLS))}</div></section>
+<section class="block" id="reels"><div class="head"><h2>Reels</h2><a class="meta" href="{IG}">More on Instagram →</a></div><div class="reels">
+{"".join(f'<a href="{u}"><img src="assets/{i}" width="540" height="960" alt="{e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
+<section class="block" id="about"><div class="head"><h2>About</h2></div><div class="about">
+<dl>{"".join(f"<dt>{e(q)}</dt><dd>{e(a)}</dd>" for q, a in FAQ[1:])}</dl>
+<div><p>Agentic Insider covers the open-source AI tools and agents that do something genuinely new. Every pick gets a short video on Instagram and Facebook, and a page here that says what it does, who built it and how to install it.</p>
+<p>Every number on this site comes from the project's own repository, and we link to it so you can check before you install anything.</p></div></div></section>
+<section class="follow"><div><h2>A new tool, most days.</h2><p>Follow along wherever you scroll.</p></div>
+<div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
+</main>"""
 org = {"@context": "https://schema.org", "@type": "Organization", "name": "Agentic Insider", "url": BASE + "/", "logo": BASE + "/assets/logo.png", "sameAs": [IG, FB]}
 site = {"@context": "https://schema.org", "@type": "WebSite", "name": "Agentic Insider", "url": BASE + "/"}
 faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
@@ -237,17 +220,18 @@ Path("index.html").write_text(shell("Agentic Insider: Open-Source AI Tools, Expl
 
 for t in TOOLS:
     others = [o for o in TOOLS if o is not t]
-    body = hero(t) + f"""<main class="panel" style="margin-top:0;border-radius:0"><div class="wrap"><div class="art"><article>
-<div class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#drops">Tools</a> / {e(t["name"])}</div>
-<h2 style="margin-top:18px">Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
+    body = hero(t) + f"""<main class="panel"><div class="wrap"><div class="art"><article>
+<div class="crumbs"><a href="../index.html">Agentic Insider</a> / <a href="../index.html#tools">Tools</a> / {e(t["name"])}</div>
+<div class="byline">By the Agentic Insider desk · {fmt_date(t["date"])} · Sources: <a href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://github.com/", "")}</a></div>
+<h2>Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
 <h2>How to try it</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>
-<h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc2);font-weight:600" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
+<h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
 <h2>More tools</h2><div class="more">{"".join(tile(o).replace('href="tools/', 'href="').replace('src="assets/', 'src="../assets/') for o in others[:2])}</div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>{e(t["name"])}</dd><dt>By</dt><dd>{e(t["by"])}</dd>
 <dt>Stars</dt><dd>★ {t["stars"]}K</dd><dt>License</dt><dd>{t["license"]}</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>{e(t["time"])}</dd>
 <dt>Good for</dt><dd>{e(t["good"])}</dd><dt>You need</dt><dd>{e(t["needs"])}</dd></dl>
-<a class="btn pri" href="{t["repo"]}" rel="nofollow">Open on GitHub</a><a class="btn ghost" style="width:100%;justify-content:center;margin-top:10px" href="{IG}">Get one tool a day</a></aside></div>
-<section class="band"><h2>One new AI tool a day.</h2><p>Follow Agentic Insider and never be the last to know.</p><a class="btn pri" href="{IG}">Follow on Instagram</a></section>
+<a class="btn pri" href="{t["repo"]}" rel="nofollow">Open on GitHub</a><a class="btn" href="{IG}">Follow on Instagram</a></aside></div>
+<section class="follow"><div><h2>A new tool, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
 </div></main>"""
     art = {"@context": "https://schema.org", "@type": "Article", "headline": t["hook"], "description": t["lead"], "datePublished": t["date"],
            "image": f"{BASE}/assets/{t['cover']}", "dateModified": t["date"], "mainEntityOfPage": f"{BASE}/tools/{t['slug']}.html",
@@ -271,7 +255,7 @@ items = "".join(f"<item><title>{e(t['name'])}: {e(t['hook'])}</title><link>{BASE
 Path("feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Agentic Insider</title><link>{BASE}/</link>'
                             f'<description>Open-source AI tools and agents, explained in 60 seconds.</description><language>en</language>{items}</channel></rss>', encoding="utf-8")
 nf = shell("Page not found | Agentic Insider", "This page does not exist.", "404.html",
-           f'<section class="hero"><div class="orb"></div><div class="wrap"><h1>Lost in the <em>latent space.</em></h1><p>This page does not exist.</p>'
+           f'<section class="hero"><div class="wrap"><h1>Page not found</h1><p>The page you were looking for has moved or never existed.</p>'
            f'<div class="btns"><a class="btn pri" href="{BASE}/">Back to the tools</a></div></div></section>', [])
 Path("404.html").write_text(nf.replace('content="index, follow', 'content="noindex, follow').replace('href="index.html', f'href="{BASE}/index.html').replace('src="assets/', f'src="{BASE}/assets/').replace('href="assets/', f'href="{BASE}/assets/'), encoding="utf-8")
 

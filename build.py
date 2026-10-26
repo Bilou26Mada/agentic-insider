@@ -11,7 +11,7 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
-    dict(slug="google-artemis", name="ARTEMIS", by="Google", tag="Agents", date="2026-10-26", img="artemis.jpg", stars=14.8, license="Apache 2.0",
+    dict(seo="Google ARTEMIS: the AI that uses an Android phone", slug="google-artemis", name="ARTEMIS", by="Google", tag="Agents", date="2026-10-26", img="artemis.jpg", stars=14.8, license="Apache 2.0",
          repo="https://github.com/google/artemis", time="5 min setup",
          hook="Google's open-source AI uses an Android phone like a human",
          lead="You type a task in plain English. ARTEMIS reads the screen, taps, types and swipes on a real Android phone until the job is done.",
@@ -22,7 +22,7 @@ TOOLS = [
                 "Let the script install what it needs: ADB, scrcpy, FFmpeg and Python.",
                 "Describe the task in plain English and watch the phone do it."],
          good="Testing Android apps, automating repetitive phone tasks", needs="An Android phone or emulator, a computer"),
-    dict(slug="genoffice", name="GenOffice", by="Genspark", tag="Productivity", date="2026-10-26", img="genoffice.jpg", stars=10.8, license="Apache 2.0",
+    dict(seo="GenOffice: free open-source Office suite with AI", slug="genoffice", name="GenOffice", by="Genspark", tag="Productivity", date="2026-10-26", img="genoffice.jpg", stars=10.8, license="Apache 2.0",
          repo="https://github.com/genspark-ai/genoffice", time="2 min install",
          hook="A free Office suite with an AI agent in every document",
          lead="It opens and saves real .docx, .xlsx and .pptx files, and the AI edits the file itself, showing every change as tracked changes you can undo.",
@@ -32,7 +32,7 @@ TOOLS = [
                 "Ask the AI for a change and review it as tracked changes.",
                 "Star a folder of documents and ask questions across them, with the source file for every answer."],
          good="Reports, spreadsheets and decks you edit with AI", needs="Mac, Windows or Linux"),
-    dict(slug="img2threejs", name="img2threejs", by="Open source", tag="3D & design", date="2026-10-26", img="img2threejs.jpg", stars=19.2,
+    dict(seo="img2threejs: turn one photo into a 3D model in code", slug="img2threejs", name="img2threejs", by="Open source", tag="3D & design", date="2026-10-26", img="img2threejs.jpg", stars=19.2,
          license="Apache 2.0", repo="https://github.com/img2threejs/img2threejs", time="Works inside your AI coding agent",
          hook="One photo in, a 3D model written entirely in code out",
          lead="Give your AI coding agent one reference image and it rebuilds the object as a Three.js model from basic shapes and procedural textures, ready to animate.",
@@ -230,7 +230,7 @@ home = f"""<section class="hero"><div class="orb"></div><div class="wrap">
 org = {"@context": "https://schema.org", "@type": "Organization", "name": "Agentic Insider", "url": BASE + "/", "logo": BASE + "/assets/logo.png", "sameAs": [IG, FB]}
 site = {"@context": "https://schema.org", "@type": "WebSite", "name": "Agentic Insider", "url": BASE + "/"}
 faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
-Path("index.html").write_text(shell("Agentic Insider: open-source AI tools and agents, explained in 60 seconds",
+Path("index.html").write_text(shell("Agentic Insider: Open-Source AI Tools, Explained",
                                     "The open-source AI tools and agents worth your time, checked against the source and explained in 60 seconds, with install steps and official links.",
                                     "", home, [org, site, faq]), encoding="utf-8")
 
@@ -258,7 +258,7 @@ for t in TOOLS:
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
         {"@type": "ListItem", "position": 2, "name": t["name"], "item": f"{BASE}/tools/{t['slug']}.html"}]}
-    Path(f"tools/{t['slug']}.html").write_text(shell(f"{t['name']}: {t['hook']} | Agentic Insider", t["lead"], f"tools/{t['slug']}.html", body,
+    Path(f"tools/{t['slug']}.html").write_text(shell(t["seo"], t["lead"], f"tools/{t['slug']}.html", body,
                                                      [art, crumbs], f"assets/{t['cover']}", 1200, 750), encoding="utf-8")
 
 urls = [(BASE + "/", max(t['date'] for t in TOOLS))] + [(f"{BASE}/tools/{t['slug']}.html", t['date']) for t in TOOLS]

@@ -6,7 +6,8 @@ import importlib.util
 spec = importlib.util.spec_from_file_location("b", Path(__file__).with_name("build.py"))
 src = Path(__file__).with_name("build.py").read_text(encoding="utf-8")
 TOOLS = eval(src[src.index("TOOLS = [") + 8: src.index("\nREELS")])
-logo = (Path(__file__).parent / "assets/logo.png").resolve().as_uri()
+import base64
+logo = "data:image/png;base64," + base64.b64encode((Path(__file__).parent / "assets/logo-128.png").read_bytes()).decode()  # file:// is blocked in set_content
 CSS = """* { margin: 0; box-sizing: border-box; } body { width: 1200px; height: 750px; overflow: hidden; background: #0B0B0D; font-family: Inter, sans-serif; color: #fff; position: relative; }
 .orb { position: absolute; right: -160px; top: -200px; width: 820px; height: 820px; border-radius: 50%; background: radial-gradient(circle, #FFC86166, #F08A2B2e 38%, transparent 68%); }
 .ring { position: absolute; right: 120px; top: 150px; width: 380px; height: 380px; border-radius: 50%; border: 2px solid #F2A65A88; box-shadow: 0 0 60px #F08A2B55, inset 0 0 60px #F08A2B33; }

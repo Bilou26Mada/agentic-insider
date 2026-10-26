@@ -22,7 +22,7 @@ TOOLS = [
                 "Let the script install what it needs: ADB, scrcpy, FFmpeg and Python.",
                 "Describe the task in plain English and watch the phone do it."],
          good="Testing Android apps, automating repetitive phone tasks", needs="An Android phone or emulator, a computer"),
-    dict(slug="genoffice", name="GenOffice", by="Genspark", tag="Productivity", date="2026-10-28", img="genoffice.jpg", stars=10.8, license="Apache 2.0",
+    dict(slug="genoffice", name="GenOffice", by="Genspark", tag="Productivity", date="2026-10-26", img="genoffice.jpg", stars=10.8, license="Apache 2.0",
          repo="https://github.com/genspark-ai/genoffice", time="2 min install",
          hook="A free Office suite with an AI agent in every document",
          lead="It opens and saves real .docx, .xlsx and .pptx files, and the AI edits the file itself, showing every change as tracked changes you can undo.",
@@ -32,7 +32,7 @@ TOOLS = [
                 "Ask the AI for a change and review it as tracked changes.",
                 "Star a folder of documents and ask questions across them, with the source file for every answer."],
          good="Reports, spreadsheets and decks you edit with AI", needs="Mac, Windows or Linux"),
-    dict(slug="img2threejs", name="img2threejs", by="Open source", tag="3D & design", date="2026-10-30", img="img2threejs.jpg", stars=19.2,
+    dict(slug="img2threejs", name="img2threejs", by="Open source", tag="3D & design", date="2026-10-26", img="img2threejs.jpg", stars=19.2,
          license="Apache 2.0", repo="https://github.com/img2threejs/img2threejs", time="Works inside your AI coding agent",
          hook="One photo in, a 3D model written entirely in code out",
          lead="Give your AI coding agent one reference image and it rebuilds the object as a Three.js model from basic shapes and procedural textures, ready to animate.",
@@ -165,7 +165,7 @@ document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
 </script>"""
 
 
-def shell(title, desc, path, body, ld, img="assets/logo.png"):
+def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630):
     rel = "../" if "/" in path else ""
     url = f"{BASE}/{path}"
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x)}</script>' for x in ld)
@@ -173,16 +173,19 @@ def shell(title, desc, path, body, ld, img="assets/logo.png"):
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="alternate" type="application/rss+xml" title="Agentic Insider" href="{BASE}/feed.xml">
 <meta name="theme-color" content="#0B0B0D">
 <meta property="og:site_name" content="Agentic Insider"><meta property="og:type" content="{'article' if rel else 'website'}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}/{img}"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="{rel}assets/logo.png"><link rel="apple-touch-icon" href="{rel}assets/logo.png">
+<meta property="og:image" content="{BASE}/{img}"><meta property="og:image:width" content="{iw}"><meta property="og:image:height" content="{ih}">
+<meta property="og:image:alt" content="{e(title)}"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{rel}assets/logo-128.png"><link rel="apple-touch-icon" href="{rel}assets/logo-128.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>{CSS}</style>{lds}
 </head><body>
-<header class="nav"><div class="wrap"><a class="brand" href="{rel}index.html"><img src="{rel}assets/logo.png" alt="Agentic Insider">Agentic Insider</a>
+<header class="nav"><div class="wrap"><a class="brand" href="{rel}index.html"><img src="{rel}assets/logo-128.png" width="34" height="34" alt="Agentic Insider logo">Agentic Insider</a>
 <nav class="links"><a href="{rel}index.html#drops">Tools</a><a href="{rel}index.html#how">How it works</a><a href="{rel}index.html#reels">Reels</a><a href="{rel}index.html#faq">FAQ</a></nav>
 <a class="btn light cta" href="{IG}">Follow</a></div></header>
 {body}
@@ -195,7 +198,7 @@ def shell(title, desc, path, body, ld, img="assets/logo.png"):
 
 
 def tile(t, cls=""):
-    return (f'<a class="tile {cls}" data-tag="{t["tag"]}" href="tools/{t["slug"]}.html"><div class="im"><img src="assets/{t["cover"]}" alt="{e(t["hook"])}" loading="lazy">'
+    return (f'<a class="tile {cls}" data-tag="{t["tag"]}" href="tools/{t["slug"]}.html"><div class="im"><img src="assets/{t["cover"]}" width="1200" height="750" alt="{e(t["name"])}: {e(t["hook"])}" loading="lazy">'
             f'<span class="badge">{t["tag"]}</span></div><div class="tx"><h3>{e(t["hook"])}</h3>'
             + (f'<p>{e(t["lead"])}</p>' if cls == "feat" else "")
             + f'<div class="meta">{t["name"]} · {t["by"]} · ★ {t["stars"]}K · {fmt_date(t["date"])}</div></div></a>')
@@ -219,7 +222,7 @@ home = f"""<section class="hero"><div class="orb"></div><div class="wrap">
 <div class="step"><b>2</b><h3>We check it</h3><p>Every number comes from the official repo: stars, license, benchmarks, install steps.</p></div>
 <div class="step"><b>3</b><h3>You try it</h3><p>A 60-second reel to see it, and a page here with the steps and the official link.</p></div></div></section>
 <section class="sec" id="reels"><h2>Watch the reels</h2><p class="sub">Short, visual and made entirely with code.</p><div class="reels">
-{"".join(f'<a class="reel" href="{u}"><img src="assets/{i}" alt="{e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
+{"".join(f'<a class="reel" href="{u}"><img src="assets/{i}" width="540" height="960" alt="Reel: {e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
 <section class="sec" id="faq"><h2>Questions</h2><div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)}</div></section>
 <section class="band"><h2>One new AI tool a day.</h2><p>Follow Agentic Insider and never be the last to know.</p>
 <div class="btns" style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap"><a class="btn pri" href="{IG}">Follow on Instagram</a><a class="btn" href="{FB}">Follow on Facebook</a></div></section>
@@ -248,18 +251,29 @@ for t in TOOLS:
 <section class="band"><h2>One new AI tool a day.</h2><p>Follow Agentic Insider and never be the last to know.</p><a class="btn pri" href="{IG}">Follow on Instagram</a></section>
 </div></main>"""
     art = {"@context": "https://schema.org", "@type": "Article", "headline": t["hook"], "description": t["lead"], "datePublished": t["date"],
-           "image": f"{BASE}/assets/{t['cover']}", "author": {"@type": "Organization", "name": "Agentic Insider", "url": BASE + "/"},
+           "image": f"{BASE}/assets/{t['cover']}", "dateModified": t["date"], "mainEntityOfPage": f"{BASE}/tools/{t['slug']}.html",
+           "author": {"@type": "Organization", "name": "Agentic Insider", "url": BASE + "/"},
            "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": BASE + "/assets/logo.png"}},
            "about": {"@type": "SoftwareApplication", "name": t["name"], "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": t["repo"]}}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
         {"@type": "ListItem", "position": 2, "name": t["name"], "item": f"{BASE}/tools/{t['slug']}.html"}]}
     Path(f"tools/{t['slug']}.html").write_text(shell(f"{t['name']}: {t['hook']} | Agentic Insider", t["lead"], f"tools/{t['slug']}.html", body,
-                                                     [art, crumbs], f"assets/{t['cover']}"), encoding="utf-8")
+                                                     [art, crumbs], f"assets/{t['cover']}", 1200, 750), encoding="utf-8")
 
-urls = [BASE + "/"] + [f"{BASE}/tools/{t['slug']}.html" for t in TOOLS]
+urls = [(BASE + "/", max(t['date'] for t in TOOLS))] + [(f"{BASE}/tools/{t['slug']}.html", t['date']) for t in TOOLS]
 Path("sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                               + "".join(f"<url><loc>{u}</loc><lastmod>{date.today()}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
+                               + "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n", encoding="utf-8")
 Path("robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
 Path(".nojekyll").write_text("")
+# RSS feed (discovery by readers and search engines) + a branded 404
+items = "".join(f"<item><title>{e(t['name'])}: {e(t['hook'])}</title><link>{BASE}/tools/{t['slug']}.html</link><guid>{BASE}/tools/{t['slug']}.html</guid>"
+                f"<pubDate>{date.fromisoformat(t['date']).strftime('%a, %d %b %Y')} 12:00:00 +0000</pubDate><description>{e(t['lead'])}</description></item>" for t in TOOLS)
+Path("feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Agentic Insider</title><link>{BASE}/</link>'
+                            f'<description>Open-source AI tools and agents, explained in 60 seconds.</description><language>en</language>{items}</channel></rss>', encoding="utf-8")
+nf = shell("Page not found | Agentic Insider", "This page does not exist.", "404.html",
+           f'<section class="hero"><div class="orb"></div><div class="wrap"><h1>Lost in the <em>latent space.</em></h1><p>This page does not exist.</p>'
+           f'<div class="btns"><a class="btn pri" href="{BASE}/">Back to the tools</a></div></div></section>', [])
+Path("404.html").write_text(nf.replace('content="index, follow', 'content="noindex, follow').replace('href="index.html', f'href="{BASE}/index.html').replace('src="assets/', f'src="{BASE}/assets/').replace('href="assets/', f'href="{BASE}/assets/'), encoding="utf-8")
+
 print("built", len(TOOLS), "tool pages")

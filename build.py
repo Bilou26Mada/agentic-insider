@@ -12,6 +12,26 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="5 free Claude Code plugins trending on GitHub", slug="top-5-claude-plugins", name="Top 5 Claude plugins", by="GitHub trending", tag="Claude Code", date="2026-10-28",
+         stars=21.4, license="MIT (all five)", repo="https://github.com/Jakeschincariol/replica-skill", time="Under a minute each",
+         hook="5 free Claude plugins that replace apps you pay for",
+         lead="The five Claude Code plugins climbing GitHub this month, what each one does for you, and the exact command to install it.",
+         good="Claude Code users who want more done for free", needs="Claude Code (Codex works for most of them)",
+         items=[("Replica", "Jakeschincariol/replica-skill", 6263, "Rebuilds any app, reads what its users hate, and fixes it, so you have something to sell.",
+                 "Eleven skills: reverse-engineer an app, rebuild it, test it for bugs, then fix what its reviews complain about.",
+                 "/plugin marketplace add Jakeschincariol/replica-skill\n/plugin install replica-skill@replica-skill", "replica.jpg"),
+                ("Logo Design", "kaankiziltug/logo-design-skill", 4970, "Describe your brand, get real SVG logo files you can use today.",
+                 "Principles, process, SVG craft and testing tools, with a reference library of 1,400+ logos.",
+                 "/plugin marketplace add kaankiziltug/logo-design-skill\n/plugin install logo-design@logo-design-skill", "logo.jpg"),
+                ("Answer me with HTML", "QingYunA/answer-me-with-html", 4591, "Ask a hard question, get a one-page visual answer instead of a wall of text.",
+                 "The agent answers in a single HTML page you can actually read and share.",
+                 "/plugin marketplace add QingYunA/answer-me-with-html\n/plugin install answer-me-with-html@answer-me-with-html", "answer.jpg"),
+                ("OpenFilm", "openfilm/openfilm", 3359, "Ask for a launch video and watch your agent edit it.",
+                 "Turns any coding agent into a video agent, with an editor to change anything it makes.",
+                 "npx skills add openfilm/openfilm", "openfilm.jpg"),
+                ("tstack", "t3dotgg/tstack", 2247, "Your code change goes all the way to a merged pull request, with nobody watching.",
+                 "The agent skills Theo uses every day, for Claude Code and Codex.",
+                 "git clone https://github.com/t3dotgg/tstack\n# then copy its skills folder into ~/.claude/skills/", "tstack.jpg")]),
     dict(seo="Google ARTEMIS: the AI that uses an Android phone", slug="google-artemis", name="ARTEMIS", by="Google", tag="Agents", date="2026-10-26", img="artemis.jpg", stars=14.8, license="Apache 2.0",
          repo="https://github.com/google/artemis", time="5 min setup",
          hook="Google's open-source AI uses an Android phone like a human",
@@ -44,14 +64,15 @@ TOOLS = [
                 "You get a TypeScript file you can drop into any website or game."],
          good="Web 3D, games, product showcases", needs="An AI coding agent (Claude Code, Codex, Cursor)"),
 ]
-REELS = [("reel-glow3.jpg", "What your AI is doing while you wait", "https://www.instagram.com/reel/De7UCLhzZNC/"),
+REELS = [("reel-top5.jpg", "5 free Claude plugins that replace paid apps", IG),
+         ("reel-glow3.jpg", "What your AI is doing while you wait", "https://www.instagram.com/reel/De7UCLhzZNC/"),
          ("reel-drift.jpg", "AI copied one photo 20 times", IG),
          ("reel-team.jpg", "My whole team is 7 Claude tabs", IG)]
 FAQ = [("What is Agentic Insider?", "A daily media on open-source AI tools and AI agents. Every tool gets a 60-second video on Instagram and Facebook, and a page here with what it does, how to install it and the official link."),
        ("Are the tools free?", "Every tool we cover is open source with a free license (for example MIT or Apache 2.0). Some let you plug in a paid AI model if you want to."),
        ("Do you test the tools?", "We check every claim against the project's official repository and documentation, and we link to it so you can verify before installing anything."),
        ("How often is there something new?", "A new reel every day on Instagram, and a new tool page here several times a week.")]
-TOOLS.sort(key=lambda t: t["slug"] != "google-artemis")  # featured first: the flagship post
+TOOLS.sort(key=lambda t: t["date"], reverse=True)  # newest first leads the front page
 for t in TOOLS:
     t["cover"] = f"cover-{t['slug']}.jpg"
 e = html.escape
@@ -138,7 +159,7 @@ code { background: #1111110d; padding: 1px 6px; font-size: 0.88em; border-radius
 .hero { text-align: center; padding: 90px 0; } .hero h1 { font-family: "Newsreader", serif; font-size: 54px; font-weight: 600; } .hero p { color: var(--soft); margin: 10px 0 24px; }
 .hidden { display: none !important; }
 @media (max-width: 860px) {
-  .front, .about, .art { grid-template-columns: 1fr; } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
+  .front, .about, .art { grid-template-columns: minmax(0, 1fr); } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
   .list, .more { grid-template-columns: 1fr; } .reels { grid-template-columns: repeat(2, 1fr); } .sections .wrap { gap: 18px; overflow-x: auto; justify-content: flex-start; }
   .top .ed { display: none; } .follow { flex-direction: column; align-items: flex-start; } .glance { position: static; } .slim nav a.x { display: none; }
 }
@@ -188,6 +209,14 @@ def tile(t, cls=""):  # used for "more tools" on article pages
             f'<div class="kick">{t["tag"]}</div><h3>{e(t["hook"])}</h3><div class="meta">{t["by"]} · {fmt_date(t["date"])}</div></a>')
 
 
+def list_body(t):  # ranked roundup: what it does for you, proof, install command, official repo
+    return "".join(f'''<h2>{len(t["items"]) - k}. {e(n)}</h2><p style="font-size:19px"><strong>{e(why)}</strong> {e(what)}</p>
+<img src="../assets/top5/{img}" width="1280" height="720" alt="{e(n)} on GitHub" loading="lazy" style="width:100%;margin:14px 0;border:1px solid var(--rule)">
+<div class="meta">★ {stars:,} on GitHub · MIT · <a style="text-decoration:underline" href="https://github.com/{repo}" rel="nofollow">github.com/{repo}</a></div>
+<pre style="background:#0D1117;color:#e6edf3;padding:16px 18px;margin:12px 0 4px;border-radius:4px;overflow-x:auto;font-size:15px"><code style="background:none;padding:0">{e(cmd)}</code></pre>'''
+                   for k, (n, repo, stars, why, what, cmd, img) in enumerate(reversed(t["items"])))
+
+
 lead, rest = TOOLS[0], TOOLS[1:]
 home = f"""<main class="wrap">
 <section class="front" id="latest">
@@ -223,8 +252,8 @@ for t in TOOLS:
     body = hero(t) + f"""<main class="panel"><div class="wrap"><div class="art"><article>
 <div class="crumbs"><a href="../index.html">Agentic Insider</a> / <a href="../index.html#tools">Tools</a> / {e(t["name"])}</div>
 <div class="byline">By the Agentic Insider desk · {fmt_date(t["date"])} · Sources: <a href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://github.com/", "")}</a></div>
-<h2>Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
-<h2>How to try it</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>
+{list_body(t) if t.get("items") else f'''<h2>Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
+<h2>How to try it</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'''}
 <h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
 <h2>More tools</h2><div class="more">{"".join(tile(o).replace('href="tools/', 'href="').replace('src="assets/', 'src="../assets/') for o in others[:2])}</div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>{e(t["name"])}</dd><dt>By</dt><dd>{e(t["by"])}</dd>

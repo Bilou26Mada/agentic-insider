@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 free Claude Code plugins trending on GitHub</title><meta name="description" content="The five Claude Code plugins climbing GitHub this month, what each one does for you, and the exact command to install it."><link rel="canonical" href="https://bilou26mada.github.io/agentic-insider/tools/top-5-claude-plugins.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="alternate" type="application/rss+xml" title="Agentic Insider" href="https://bilou26mada.github.io/agentic-insider/feed.xml">
+<meta name="theme-color" content="#FBFAF7">
+<meta property="og:site_name" content="Agentic Insider"><meta property="og:type" content="article">
+<meta property="og:title" content="5 free Claude Code plugins trending on GitHub"><meta property="og:description" content="The five Claude Code plugins climbing GitHub this month, what each one does for you, and the exact command to install it."><meta property="og:url" content="https://bilou26mada.github.io/agentic-insider/tools/top-5-claude-plugins.html">
+<meta property="og:image" content="https://bilou26mada.github.io/agentic-insider/assets/cover-top-5-claude-plugins.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="750">
+<meta property="og:image:alt" content="5 free Claude Code plugins trending on GitHub"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/logo-128.png"><link rel="apple-touch-icon" href="../assets/logo-128.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"><style>
+:root { --paper: #FBFAF7; --ink: #111111; --soft: #4A4A4A; --mute: #7A7670; --rule: #1111111f; --rule2: #111111; --acc: #C2410C; --tint: #F3EFE8; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: "Public Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { height: auto; max-width: 100%; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.serif { font-family: "Newsreader", Georgia, serif; }
+/* masthead */
+.top { border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--mute); }
+.top .wrap { display: flex; justify-content: space-between; height: 38px; align-items: center; }
+.top a:hover { color: var(--ink); }
+.mast { text-align: center; padding: 30px 0 18px; }
+.mast .name { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: clamp(42px, 7vw, 76px); letter-spacing: -0.03em; line-height: 1; }
+.mast .tag { margin-top: 8px; font-size: 15px; color: var(--soft); }
+.sections { border-top: 2px solid var(--rule2); border-bottom: 1px solid var(--rule); }
+.sections .wrap { display: flex; justify-content: center; gap: 28px; height: 46px; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+.sections a:hover, .sections a.on { color: var(--acc); }
+.slim { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.slim .wrap { display: flex; align-items: center; height: 58px; gap: 22px; }
+.slim .logo { font-family: "Newsreader", serif; font-weight: 600; font-size: 24px; letter-spacing: -0.02em; }
+.slim nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 600; }
+.slim nav a:hover { color: var(--acc); }
+/* labels, buttons */
+.kick { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--acc); }
+.meta { font-size: 13px; color: var(--mute); }
+.btn { display: inline-block; padding: 11px 18px; font-weight: 600; font-size: 15px; border: 1px solid var(--ink); border-radius: 3px; }
+.btn.pri { background: var(--ink); color: var(--paper); }
+.btn:hover { background: var(--acc); border-color: var(--acc); color: #fff; }
+/* front page */
+.front { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0; padding: 34px 0 40px; border-bottom: 1px solid var(--rule); }
+.lead-story { padding-right: 34px; border-right: 1px solid var(--rule); }
+.lead-story img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.lead-story h1 { font-family: "Newsreader", serif; font-weight: 600; font-size: clamp(32px, 4.2vw, 50px); line-height: 1.06; letter-spacing: -0.02em; margin: 16px 0 12px; }
+.lead-story h1 a:hover, .item h3 a:hover, .list h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.lead-story p { font-size: 19px; color: var(--soft); max-width: 720px; }
+.rail { padding-left: 30px; }
+.rail .item { padding: 0 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--rule); }
+.rail .item:last-child { border-bottom: 0; margin-bottom: 0; }
+.rail img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; margin-bottom: 12px; }
+.item h3 { font-family: "Newsreader", serif; font-weight: 600; font-size: 23px; line-height: 1.18; letter-spacing: -0.01em; margin: 6px 0 6px; }
+.block { padding: 40px 0; border-bottom: 1px solid var(--rule); }
+.block > .head { display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--rule2); padding-top: 10px; margin-bottom: 22px; }
+.block > .head h2 { font-family: "Newsreader", serif; font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.list article { border-top: 1px solid var(--rule); padding-top: 14px; }
+.list .n { font-family: "Newsreader", serif; font-size: 34px; color: var(--acc); line-height: 1; }
+.list h3 { font-family: "Newsreader", serif; font-size: 21px; line-height: 1.2; margin: 8px 0 6px; font-weight: 600; }
+.reels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; }
+.reels a { display: block; } .reels img { width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block; }
+.reels span { display: block; margin-top: 10px; font-family: "Newsreader", serif; font-weight: 600; font-size: 18px; line-height: 1.25; }
+.reels a:hover span { color: var(--acc); }
+.about { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+.about p { font-size: 19px; color: var(--soft); margin-bottom: 14px; max-width: 700px; }
+.about dl { font-size: 16px; } .about dt { font-weight: 700; margin-top: 16px; } .about dd { color: var(--soft); }
+.follow { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 30px; background: var(--tint); margin: 40px 0; }
+.follow h2 { font-family: "Newsreader", serif; font-size: 28px; font-weight: 600; } .follow p { color: var(--soft); }
+.follow .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+footer { border-top: 2px solid var(--rule2); padding: 26px 0 40px; font-size: 14px; color: var(--mute); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer .logo { font-family: "Newsreader", serif; font-weight: 600; font-size: 22px; color: var(--ink); }
+footer nav { display: flex; gap: 18px; } footer a:hover { color: var(--ink); }
+/* article */
+.panel { background: var(--paper); }
+.crumbs { font-size: 13px; color: var(--mute); padding-top: 26px; } .crumbs a:hover { color: var(--ink); }
+.art { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; padding-bottom: 20px; }
+.art article { max-width: 700px; }
+.art h2 { font-family: "Newsreader", serif; font-size: 28px; font-weight: 600; letter-spacing: -0.01em; margin: 38px 0 12px; }
+.art ul, .art ol { padding-left: 22px; font-size: 18px; } .art li { margin: 10px 0; }
+.art .byline { margin-top: 20px; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 14px; color: var(--mute); }
+code { background: #1111110d; padding: 1px 6px; font-size: 0.88em; border-radius: 3px; }
+.glance { position: sticky; top: 82px; border-top: 2px solid var(--rule2); padding-top: 12px; margin-top: 26px; }
+.glance h4 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+.glance dl { display: grid; grid-template-columns: auto 1fr; font-size: 15px; }
+.glance dt, .glance dd { padding: 9px 0; border-bottom: 1px solid var(--rule); } .glance dt { color: var(--mute); padding-right: 14px; } .glance dd { font-weight: 600; }
+.glance .btn { display: block; text-align: center; margin-top: 16px; }
+.more { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.more img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; margin-bottom: 10px; }
+.hero { text-align: center; padding: 90px 0; } .hero h1 { font-family: "Newsreader", serif; font-size: 54px; font-weight: 600; } .hero p { color: var(--soft); margin: 10px 0 24px; }
+.hidden { display: none !important; }
+@media (max-width: 860px) {
+  .front, .about, .art { grid-template-columns: minmax(0, 1fr); } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
+  .list, .more { grid-template-columns: 1fr; } .reels { grid-template-columns: repeat(2, 1fr); } .sections .wrap { gap: 18px; overflow-x: auto; justify-content: flex-start; }
+  .top .ed { display: none; } .follow { flex-direction: column; align-items: flex-start; } .glance { position: static; } .slim nav a.x { display: none; }
+}
+
+.th { position: relative; padding: 70px 0 80px; text-align: center; overflow: hidden; }
+.th .ey { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.th .ey b { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.th h1 { margin: 20px auto 0; max-width: 980px; font-size: clamp(38px, 6.2vw, 74px); line-height: 1.02; }
+.th .lead { margin: 22px auto 0; max-width: 680px; font-size: 19px; opacity: .85; }
+.th .chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.th .chip { padding: 8px 15px; border-radius: 30px; border: 1px solid; font-size: 14px; font-weight: 600; }
+.th .ban { width: 100%; max-width: 1100px; display: block; margin: 44px auto 0; border-radius: 20px; }
+.th .shots { display: grid; gap: 18px; max-width: 1100px; margin: 22px auto 0; }
+.th .shots img { width: 100%; border-radius: 16px; border: 1px solid #ffffff1c; display: block; }
+.th .credit { margin-top: 22px; font-size: 13px; opacity: .6; }
+@media (max-width: 760px) { .th .shots { grid-template-columns: 1fr !important; } }
+
+.th { background: radial-gradient(ellipse at 85% 0%, #1f2a3a, #0D1117 60%); color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #3FB950; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #3FB950; }
+.th h1 { font-weight: 800; letter-spacing: -0.03em; } .th h1 em { font-style: normal; color: #E3B341; }
+.th .shots { grid-template-columns: repeat(5, 1fr); } .th .chip { font-family: "JetBrains Mono", monospace; border-color: #30363d; background: #161b22; }</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "5 free Claude plugins that replace apps you pay for", "description": "The five Claude Code plugins climbing GitHub this month, what each one does for you, and the exact command to install it.", "datePublished": "2026-10-28", "image": "https://bilou26mada.github.io/agentic-insider/assets/cover-top-5-claude-plugins.jpg", "dateModified": "2026-10-28", "mainEntityOfPage": "https://bilou26mada.github.io/agentic-insider/tools/top-5-claude-plugins.html", "author": {"@type": "Organization", "name": "Agentic Insider", "url": "https://bilou26mada.github.io/agentic-insider/"}, "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": "https://bilou26mada.github.io/agentic-insider/assets/logo.png"}}, "about": {"@type": "SoftwareApplication", "name": "Top 5 Claude plugins", "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": "https://github.com/Jakeschincariol/replica-skill"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bilou26mada.github.io/agentic-insider/"}, {"@type": "ListItem", "position": 2, "name": "Top 5 Claude plugins", "item": "https://bilou26mada.github.io/agentic-insider/tools/top-5-claude-plugins.html"}]}</script>
+</head><body>
+<header class="slim"><div class="wrap"><a class="logo" href="../index.html">Agentic Insider</a><nav><a class="x" href="../index.html#latest">Latest</a><a class="x" href="../index.html#reels">Reels</a><a href="https://www.instagram.com/agentic_insider/">Instagram</a></nav></div></header>
+<section class="th"><div class="wrap"><span class="ey"><b></b>Trending on GitHub · October 2026</span><h1>5 free Claude plugins that <em>replace apps you pay for</em></h1><p class="lead">The five Claude Code plugins climbing GitHub this month, what each one does for you, and the exact command to install it.</p><div class="chips"><span class="chip">★ 21.4K stars combined</span><span class="chip">All MIT licensed</span><span class="chip">One command each</span></div><div class="shots"></div><p class="credit">Screenshots: each project's GitHub page. Agentic Insider is not affiliated with these projects.</p></div></section><main class="panel"><div class="wrap"><div class="art"><article>
+<div class="crumbs"><a href="../index.html">Agentic Insider</a> / <a href="../index.html#tools">Tools</a> / Top 5 Claude plugins</div>
+<div class="byline">By the Agentic Insider desk · Oct 28, 2026 · Sources: <a href="https://github.com/Jakeschincariol/replica-skill" rel="nofollow">Jakeschincariol/replica-skill</a></div>
+<h2>5. tstack</h2><p style="font-size:19px"><strong>Your code change goes all the way to a merged pull request, with nobody watching.</strong> The agent skills Theo uses every day, for Claude Code and Codex.</p>
+<img src="../assets/top5/tstack.jpg" width="1280" height="720" alt="tstack on GitHub" loading="lazy" style="width:100%;margin:14px 0;border:1px solid var(--rule)">
+<div class="meta">★ 2,247 on GitHub · MIT · <a style="text-decoration:underline" href="https://github.com/t3dotgg/tstack" rel="nofollow">github.com/t3dotgg/tstack</a></div>
+<pre style="background:#0D1117;color:#e6edf3;padding:16px 18px;margin:12px 0 4px;border-radius:4px;overflow-x:auto;font-size:15px"><code style="background:none;padding:0">git clone https://github.com/t3dotgg/tstack
+# then copy its skills folder into ~/.claude/skills/</code></pre><h2>4. OpenFilm</h2><p style="font-size:19px"><strong>Ask for a launch video and watch your agent edit it.</strong> Turns any coding agent into a video agent, with an editor to change anything it makes.</p>
+<img src="../assets/top5/openfilm.jpg" width="1280" height="720" alt="OpenFilm on GitHub" loading="lazy" style="width:100%;margin:14px 0;border:1px solid var(--rule)">
+<div class="meta">★ 3,359 on GitHub · MIT · <a style="text-decoration:underline" href="https://github.com/openfilm/openfilm" rel="nofollow">github.com/openfilm/openfilm</a></div>
+<pre style="background:#0D1117;color:#e6edf3;padding:16px 18px;margin:12px 0 4px;border-radius:4px;overflow-x:auto;font-size:15px"><code style="background:none;padding:0">npx skills add openfilm/openfilm</code></pre><h2>3. Answer me with HTML</h2><p style="font-size:19px"><strong>Ask a hard question, get a one-page visual answer instead of a wall of text.</strong> The agent answers in a single HTML page you can actually read and share.</p>
+<img src="../assets/top5/answer.jpg" width="1280" height="720" alt="Answer me with HTML on GitHub" loading="lazy" style="width:100%;margin:14px 0;border:1px solid var(--rule)">
+<div class="meta">★ 4,591 on GitHub · MIT · <a style="text-decoration:underline" href="https://github.com/QingYunA/answer-me-with-html" rel="nofollow">github.com/QingYunA/answer-me-with-html</a></div>
+<pre style="background:#0D1117;color:#e6edf3;padding:16px 18px;margin:12px 0 4px;border-radius:4px;overflow-x:auto;font-size:15px"><code style="background:none;padding:0">/plugin marketplace add QingYunA/answer-me-with-html
+/plugin install answer-me-with-html@answer-me-with-html</code></pre><h2>2. Logo Design</h2><p style="font-size:19px"><strong>Describe your brand, get real SVG logo files you can use today.</strong> Principles, process, SVG craft and testing tools, with a reference library of 1,400+ logos.</p>
+<img src="../assets/top5/logo.jpg" width="1280" height="720" alt="Logo Design on GitHub" loading="lazy" style="width:100%;margin:14px 0;border:1px solid var(--rule)">
+<div class="meta">★ 4,970 on GitHub · MIT · <a style="text-decoration:underline" href="https://github.com/kaankiziltug/logo-design-skill" rel="nofollow">github.com/kaankiziltug/logo-design-skill</a></div>
+<pre style="background:#0D1117;color:#e6edf3;padding:16px 18px;margin:12px 0 4px;border-radius:4px;overflow-x:auto;font-size:15px"><code style="background:none;padding:0">/plugin marketplace add kaankiziltug/logo-design-skill
+/plugin install logo-design@logo-design-skill</code></pre><h2>1. Replica</h2><p style="font-size:19px"><strong>Rebuilds any app, reads what its users hate, and fixes it, so you have something to sell.</strong> Eleven skills: reverse-engineer an app, rebuild it, test it for bugs, then fix what its reviews complain about.</p>
+<img src="../assets/top5/replica.jpg" width="1280" height="720" alt="Replica on GitHub" loading="lazy" style="width:100%;margin:14px 0;border:1px solid var(--rule)">
+<div class="meta">★ 6,263 on GitHub · MIT · <a style="text-decoration:underline" href="https://github.com/Jakeschincariol/replica-skill" rel="nofollow">github.com/Jakeschincariol/replica-skill</a></div>
+<pre style="background:#0D1117;color:#e6edf3;padding:16px 18px;margin:12px 0 4px;border-radius:4px;overflow-x:auto;font-size:15px"><code style="background:none;padding:0">/plugin marketplace add Jakeschincariol/replica-skill
+/plugin install replica-skill@replica-skill</code></pre>
+<h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="https://github.com/Jakeschincariol/replica-skill" rel="nofollow">github.com/Jakeschincariol/replica-skill</a></p>
+<h2>More tools</h2><div class="more"><a class="item" href="google-artemis.html"><img src="../assets/cover-google-artemis.jpg" width="1600" height="900" alt="ARTEMIS" loading="lazy"><div class="kick">Agents</div><h3>Google&#x27;s open-source AI uses an Android phone like a human</h3><div class="meta">Google · Oct 26, 2026</div></a><a class="item" href="genoffice.html"><img src="../assets/cover-genoffice.jpg" width="1600" height="900" alt="GenOffice" loading="lazy"><div class="kick">Productivity</div><h3>A free Office suite with an AI agent in every document</h3><div class="meta">Genspark · Oct 26, 2026</div></a></div>
+</article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>Top 5 Claude plugins</dd><dt>By</dt><dd>GitHub trending</dd>
+<dt>Stars</dt><dd>★ 21.4K</dd><dt>License</dt><dd>MIT (all five)</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>Under a minute each</dd>
+<dt>Good for</dt><dd>Claude Code users who want more done for free</dd><dt>You need</dt><dd>Claude Code (Codex works for most of them)</dd></dl>
+<a class="btn pri" href="https://github.com/Jakeschincariol/replica-skill" rel="nofollow">Open on GitHub</a><a class="btn" href="https://www.instagram.com/agentic_insider/">Follow on Instagram</a></aside></div>
+<section class="follow"><div><h2>A new tool, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="https://www.instagram.com/agentic_insider/">Instagram</a><a class="btn" href="https://www.facebook.com/agenticinsider">Facebook</a></div></section>
+</div></main>
+<footer><div class="wrap"><a class="logo" href="../index.html">Agentic Insider</a>
+<nav><a href="../index.html#about">About</a><a href="https://www.instagram.com/agentic_insider/" rel="me">Instagram</a><a href="https://www.facebook.com/agenticinsider" rel="me">Facebook</a><a href="../feed.xml">RSS</a></nav>
+<span>© 2026 Agentic Insider. Facts checked against each project's official repository.</span></div></footer>
+</body></html>

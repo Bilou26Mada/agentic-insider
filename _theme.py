@@ -39,6 +39,14 @@ THEMES = {
         shots=["official/img2threejs-guitar.jpg", "official/img2threejs-cat.jpg", "official/img2threejs-game.jpg"],
         chips=["★ 19.2K on GitHub", "Three.js", "Apache 2.0"],
         credit="Images: img2threejs repository and showcase. Agentic Insider is not affiliated with the project."),
+    "top-5-claude-plugins": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: radial-gradient(ellipse at 85% 0%, #1f2a3a, #0D1117 60%); color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #3FB950; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #3FB950; }
+.th h1 { font-weight: 800; letter-spacing: -0.03em; } .th h1 em { font-style: normal; color: #E3B341; }
+.th .shots { grid-template-columns: repeat(5, 1fr); } .th .chip { font-family: "JetBrains Mono", monospace; border-color: #30363d; background: #161b22; }""",
+        eyebrow="Trending on GitHub · October 2026", title="5 free Claude plugins that <em>replace apps you pay for</em>",
+        banner=None, shots=[], chips=["★ 21.4K stars combined", "All MIT licensed", "One command each"],
+        credit="Screenshots: each project's GitHub page. Agentic Insider is not affiliated with these projects."),
 }
 BASE_CSS = """
 .th { position: relative; padding: 70px 0 80px; text-align: center; overflow: hidden; }
@@ -65,5 +73,5 @@ def hero(t, rel="../"):
     chips = "".join(f'<span class="chip">{c}</span>' for c in th["chips"])
     return (f'<section class="th"><div class="wrap">{logo}<span class="ey"><b></b>{th["eyebrow"]}</span><h1>{th["title"]}</h1>{bar}'
             f'<p class="lead">{t["lead"]}</p>{apps}<div class="chips">{chips}</div>'
-            f'<img class="ban" src="{rel}assets/{th["banner"]}" alt="{t["name"]} official banner"><div class="shots">{shots}</div>'
+            + (f'<img class="ban" src="{rel}assets/{th["banner"]}" alt="{t["name"]} official banner">' if th["banner"] else "") + f'<div class="shots">{shots}</div>'
             f'<p class="credit">{th["credit"]}</p></div></section>')

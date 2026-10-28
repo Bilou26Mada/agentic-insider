@@ -93,7 +93,7 @@ code { background: #1111110d; padding: 1px 6px; font-size: 0.88em; border-radius
 .hero { text-align: center; padding: 90px 0; } .hero h1 { font-family: "Newsreader", serif; font-size: 54px; font-weight: 600; } .hero p { color: var(--soft); margin: 10px 0 24px; }
 .hidden { display: none !important; }
 @media (max-width: 860px) {
-  .front, .about, .art { grid-template-columns: 1fr; } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
+  .front, .about, .art { grid-template-columns: minmax(0, 1fr); } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
   .list, .more { grid-template-columns: 1fr; } .reels { grid-template-columns: repeat(2, 1fr); } .sections .wrap { gap: 18px; overflow-x: auto; justify-content: flex-start; }
   .top .ed { display: none; } .follow { flex-direction: column; align-items: flex-start; } .glance { position: static; } .slim nav a.x { display: none; }
 }
@@ -124,7 +124,7 @@ code { background: #1111110d; padding: 1px 6px; font-size: 0.88em; border-radius
 <h2>Why it matters</h2><ul><li>About 3 to 5 seconds per step</li><li>Over 99% of tasks finished on Google Research&#x27;s AndroidWorld benchmark (100+ multi-step tasks)</li><li>Connects to Claude Code, Cursor, Codex and Windsurf through MCP</li></ul>
 <h2>How to try it</h2><ol><li>Plug in an Android phone with USB debugging on, or start an emulator.</li><li>Clone the repo and run <code>./start.sh</code> (Mac/Linux) or <code>start.bat</code> (Windows).</li><li>Let the script install what it needs: ADB, scrcpy, FFmpeg and Python.</li><li>Describe the task in plain English and watch the phone do it.</li></ol>
 <h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="https://github.com/google/artemis" rel="nofollow">github.com/google/artemis</a></p>
-<h2>More tools</h2><div class="more"><a class="item" href="genoffice.html"><img src="../assets/cover-genoffice.jpg" width="1600" height="900" alt="GenOffice" loading="lazy"><div class="kick">Productivity</div><h3>A free Office suite with an AI agent in every document</h3><div class="meta">Genspark · Oct 26, 2026</div></a><a class="item" href="img2threejs.html"><img src="../assets/cover-img2threejs.jpg" width="1600" height="900" alt="img2threejs" loading="lazy"><div class="kick">3D & design</div><h3>One photo in, a 3D model written entirely in code out</h3><div class="meta">Open source · Oct 26, 2026</div></a></div>
+<h2>More tools</h2><div class="more"><a class="item" href="top-5-claude-plugins.html"><img src="../assets/cover-top-5-claude-plugins.jpg" width="1600" height="900" alt="Top 5 Claude plugins" loading="lazy"><div class="kick">Claude Code</div><h3>5 free Claude plugins that replace apps you pay for</h3><div class="meta">GitHub trending · Oct 28, 2026</div></a><a class="item" href="genoffice.html"><img src="../assets/cover-genoffice.jpg" width="1600" height="900" alt="GenOffice" loading="lazy"><div class="kick">Productivity</div><h3>A free Office suite with an AI agent in every document</h3><div class="meta">Genspark · Oct 26, 2026</div></a></div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>ARTEMIS</dd><dt>By</dt><dd>Google</dd>
 <dt>Stars</dt><dd>★ 14.8K</dd><dt>License</dt><dd>Apache 2.0</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>5 min setup</dd>
 <dt>Good for</dt><dd>Testing Android apps, automating repetitive phone tasks</dd><dt>You need</dt><dd>An Android phone or emulator, a computer</dd></dl>

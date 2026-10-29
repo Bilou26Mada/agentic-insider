@@ -47,6 +47,14 @@ THEMES = {
         eyebrow="Trending on GitHub · October 2026", title="5 free Claude plugins that <em>replace apps you pay for</em>",
         banner=None, shots=[], chips=["★ 21.4K stars combined", "All MIT licensed", "One command each"],
         credit="Screenshots: each project's GitHub page. Agentic Insider is not affiliated with these projects."),
+    "ai-hacker-90-organizations": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #2a0d12, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #FFE14D; } .th .ey b { background: #E5243B; }
+.th h1 { font-weight: 800; letter-spacing: -0.03em; } .th h1 em { font-style: normal; color: #FFE14D; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #3a1a1f; background: #140a0d; }""",
+        eyebrow="Seoul police · October 26, 2026", title="One man, one AI agent, <em>90 organizations hacked</em>",
+        banner="cover-ai-hacker-90-organizations.jpg", shots=[], chips=["8.2M records stolen", "60 companies in 44 days", "7 arrested"],
+        credit="Image: reconstruction. Facts: Seoul Metropolitan Police via JoongAng Daily, Decrypt, Cybersecurity News."),
 }
 BASE_CSS = """
 .th { position: relative; padding: 70px 0 80px; text-align: center; overflow: hidden; }

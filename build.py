@@ -12,6 +12,21 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="AI agent hacking case in South Korea: 90 organizations, 8.2 million records", slug="ai-hacker-90-organizations", name="AI hacking case", by="Seoul police", tag="AI & security", date="2026-10-30",
+         news=True, src="JoongAng Daily", repo="https://www.koreajoongangdaily.com/korea/seven-arrested-for-using-generative-ai-to-hack-90-organizations/12938493",
+         hook="One man used an AI agent to hack 90 organizations. Police caught him with AI",
+         lead="A 32-year-old with no IT degree started handing his attacks to AI in late August. About 90 organizations were breached and 8.2 million records stolen before Seoul police arrested seven people.",
+         facts=["About 90 organizations hit: hospitals, universities, golf courses, cram schools and affiliates of large companies",
+                "8.2 million records stolen, including personal data and internal documents",
+                "About 60 companies fell in 44 days (Aug 31 to Oct 13) once AI tools joined in, per local reports",
+                "38 organizations got extortion emails, 360 million won (about $272,000) demanded in total; no payment has been confirmed",
+                "Helpers were recruited through a Telegram ad for 'simple phone calls for pay'",
+                "Police say an in-house AI analysis system helped them catch all seven within four months; it is South Korea's first large AI-assisted hacking arrest"],
+         steps=["Use a different password on every site, kept in a password manager.",
+                "Turn on two-factor authentication for email, banking and social accounts first.",
+                "Check whether your email shows up in known breaches at haveibeenpwned.com.",
+                "Treat any 'pay or we leak your data' email or call as a crime: report it, don't pay."],
+         good="Anyone whose data sits in a hospital, school or company database", needs="Ten minutes to lock down your accounts"),
     dict(seo="5 free Claude Code plugins trending on GitHub", slug="top-5-claude-plugins", name="Top 5 Claude plugins", by="GitHub trending", tag="Claude Code", date="2026-10-28",
          stars=21.4, license="MIT (all five)", repo="https://github.com/Jakeschincariol/replica-skill", time="Under a minute each",
          hook="5 free Claude plugins that replace apps you pay for",
@@ -76,6 +91,7 @@ TOOLS.sort(key=lambda t: t["date"], reverse=True)  # newest first leads the fron
 for t in TOOLS:
     t["cover"] = f"cover-{t['slug']}.jpg"
 e = html.escape
+stat = lambda t: t["by"] if t.get("news") else f'★ {t["stars"]}K · {t["license"]}'
 fmt_date = lambda d: date.fromisoformat(d).strftime("%b %d, %Y").replace(" 0", " ")
 
 CSS = """
@@ -223,14 +239,14 @@ home = f"""<main class="wrap">
 <article class="lead-story"><a href="tools/{lead["slug"]}.html"><img src="assets/{lead["cover"]}" width="1600" height="900" alt="{e(lead["name"])}"></a>
 <div class="kick" style="margin-top:16px">{lead["tag"]} · {lead["by"]}</div>
 <h1><a href="tools/{lead["slug"]}.html">{e(lead["hook"])}</a></h1><p>{e(lead["lead"])}</p>
-<div class="meta" style="margin-top:12px">{fmt_date(lead["date"])} · ★ {lead["stars"]}K on GitHub · {lead["license"]}</div></article>
+<div class="meta" style="margin-top:12px">{fmt_date(lead["date"])} · {stat(lead)}</div></article>
 <aside class="rail">{"".join(f'<article class="item"><a href="tools/{t["slug"]}.html"><img src="assets/{t["cover"]}" width="1600" height="900" alt="{e(t["name"])}" loading="lazy"></a>'
                              f'<div class="kick">{t["tag"]} · {t["by"]}</div><h3><a href="tools/{t["slug"]}.html">{e(t["hook"])}</a></h3>'
-                             f'<div class="meta">{fmt_date(t["date"])} · ★ {t["stars"]}K</div></article>' for t in rest)}</aside>
+                             f'<div class="meta">{fmt_date(t["date"])} · {stat(t)}</div></article>' for t in rest)}</aside>
 </section>
 <section class="block" id="tools"><div class="head"><h2>All tools</h2><span class="meta">{len(TOOLS)} covered so far</span></div><div class="list">
 {"".join(f'<article><div class="n">{k + 1:02d}</div><h3><a href="tools/{t["slug"]}.html">{e(t["name"])}: {e(t["hook"])}</a></h3>'
-         f'<div class="meta">{t["by"]} · {t["license"]} · ★ {t["stars"]}K</div></article>' for k, t in enumerate(TOOLS))}</div></section>
+         f'<div class="meta">{t["by"]} · {stat(t)}</div></article>' for k, t in enumerate(TOOLS))}</div></section>
 <section class="block" id="reels"><div class="head"><h2>Reels</h2><a class="meta" href="{IG}">More on Instagram →</a></div><div class="reels">
 {"".join(f'<a href="{u}"><img src="assets/{i}" width="540" height="960" alt="{e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
 <section class="block" id="about"><div class="head"><h2>About</h2></div><div class="about">
@@ -251,22 +267,22 @@ for t in TOOLS:
     others = [o for o in TOOLS if o is not t]
     body = hero(t) + f"""<main class="panel"><div class="wrap"><div class="art"><article>
 <div class="crumbs"><a href="../index.html">Agentic Insider</a> / <a href="../index.html#tools">Tools</a> / {e(t["name"])}</div>
-<div class="byline">By the Agentic Insider desk · {fmt_date(t["date"])} · Sources: <a href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://github.com/", "")}</a></div>
-{list_body(t) if t.get("items") else f'''<h2>Why it matters</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
-<h2>How to try it</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'''}
-<h2>Official link</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
+<div class="byline">By the Agentic Insider desk · {fmt_date(t["date"])} · Sources: <a href="{t["repo"]}" rel="nofollow">{t.get("src") or t["repo"].replace("https://github.com/", "")}</a></div>
+{list_body(t) if t.get("items") else f'''<h2>{"What happened" if t.get("news") else "Why it matters"}</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
+<h2>{"How to protect yourself" if t.get("news") else "How to try it"}</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'''}
+<h2>{"Source" if t.get("news") else "Official link"}</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
 <h2>More tools</h2><div class="more">{"".join(tile(o).replace('href="tools/', 'href="').replace('src="assets/', 'src="../assets/') for o in others[:2])}</div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>{e(t["name"])}</dd><dt>By</dt><dd>{e(t["by"])}</dd>
-<dt>Stars</dt><dd>★ {t["stars"]}K</dd><dt>License</dt><dd>{t["license"]}</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>{e(t["time"])}</dd>
-<dt>Good for</dt><dd>{e(t["good"])}</dd><dt>You need</dt><dd>{e(t["needs"])}</dd></dl>
-<a class="btn pri" href="{t["repo"]}" rel="nofollow">Open on GitHub</a><a class="btn" href="{IG}">Follow on Instagram</a></aside></div>
+{"" if t.get("news") else f'<dt>Stars</dt><dd>★ {t["stars"]}K</dd><dt>License</dt><dd>{t["license"]}</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>{e(t["time"])}</dd>'}
+<dt>{"Who should care" if t.get("news") else "Good for"}</dt><dd>{e(t["good"])}</dd><dt>You need</dt><dd>{e(t["needs"])}</dd></dl>
+<a class="btn pri" href="{t["repo"]}" rel="nofollow">{"Read the source" if t.get("news") else "Open on GitHub"}</a><a class="btn" href="{IG}">Follow on Instagram</a></aside></div>
 <section class="follow"><div><h2>A new tool, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
 </div></main>"""
     art = {"@context": "https://schema.org", "@type": "Article", "headline": t["hook"], "description": t["lead"], "datePublished": t["date"],
            "image": f"{BASE}/assets/{t['cover']}", "dateModified": t["date"], "mainEntityOfPage": f"{BASE}/tools/{t['slug']}.html",
            "author": {"@type": "Organization", "name": "Agentic Insider", "url": BASE + "/"},
            "publisher": {"@type": "Organization", "name": "Agentic Insider", "logo": {"@type": "ImageObject", "url": BASE + "/assets/logo.png"}},
-           "about": {"@type": "SoftwareApplication", "name": t["name"], "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": t["repo"]}}
+           **({} if t.get("news") else {"about": {"@type": "SoftwareApplication", "name": t["name"], "applicationCategory": "DeveloperApplication", "offers": {"@type": "Offer", "price": "0"}, "url": t["repo"]}})}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
         {"@type": "ListItem", "position": 2, "name": t["name"], "item": f"{BASE}/tools/{t['slug']}.html"}]}

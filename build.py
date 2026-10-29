@@ -83,7 +83,7 @@ REELS = [("reel-top5.jpg", "5 free Claude plugins that replace paid apps", IG),
          ("reel-glow3.jpg", "What your AI is doing while you wait", "https://www.instagram.com/reel/De7UCLhzZNC/"),
          ("reel-drift.jpg", "AI copied one photo 20 times", IG),
          ("reel-team.jpg", "My whole team is 7 Claude tabs", IG)]
-FAQ = [("What is Agentic Insider?", "A daily media on open-source AI tools and AI agents. Every tool gets a 60-second video on Instagram and Facebook, and a page here with what it does, how to install it and the official link."),
+FAQ = [("What is Agentic Insider?", "A daily media on what AI is really doing: the cases, leaks and arrests behind the headlines, and the open-source AI tools worth using. Every story gets a short video on Instagram and Facebook, and a page here with the sources, what it means for you and, for tools, how to install it and the official link."),
        ("Are the tools free?", "Every tool we cover is open source with a free license (for example MIT or Apache 2.0). Some let you plug in a paid AI model if you want to."),
        ("Do you test the tools?", "We check every claim against the project's official repository and documentation, and we link to it so you can verify before installing anything."),
        ("How often is there something new?", "A new reel every day on Instagram, and a new tool page here several times a week.")]
@@ -194,7 +194,7 @@ def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630
     else:
         header = (f'<div class="top"><div class="wrap"><span class="ed">{today}</span><span><a href="{IG}">Instagram</a> · <a href="{FB}">Facebook</a> · <a href="feed.xml">RSS</a></span></div></div>'
                   f'<header class="mast"><div class="wrap"><a class="name" href="index.html">Agentic Insider</a>'
-                  f'<div class="tag">The open-source AI tools worth your time, explained.</div></div></header>'
+                  f'<div class="tag">What AI is really doing, and the tools worth using. Every fact sourced.</div></div></header>'
                   f'<nav class="sections"><div class="wrap"><a class="on" href="#latest">Latest</a><a href="#tools">All tools</a><a href="#reels">Reels</a><a href="#about">About</a></div></nav>')
     return f"""<!doctype html>
 <html lang="en"><head>
@@ -251,16 +251,16 @@ home = f"""<main class="wrap">
 {"".join(f'<a href="{u}"><img src="assets/{i}" width="540" height="960" alt="{e(c)}" loading="lazy"><span>{e(c)}</span></a>' for i, c, u in REELS)}</div></section>
 <section class="block" id="about"><div class="head"><h2>About</h2></div><div class="about">
 <dl>{"".join(f"<dt>{e(q)}</dt><dd>{e(a)}</dd>" for q, a in FAQ[1:])}</dl>
-<div><p>Agentic Insider covers the open-source AI tools and agents that do something genuinely new. Every pick gets a short video on Instagram and Facebook, and a page here that says what it does, who built it and how to install it.</p>
+<div><p>Agentic Insider covers what AI is doing in the real world, the cases, scandals and arrests that rarely make the front page, and the open-source AI tools and agents that do something genuinely new. Every pick gets a short video on Instagram and Facebook, and a page here that says what it does, who built it and how to install it.</p>
 <p>Every number on this site comes from the project's own repository, and we link to it so you can check before you install anything.</p></div></div></section>
-<section class="follow"><div><h2>A new tool, most days.</h2><p>Follow along wherever you scroll.</p></div>
+<section class="follow"><div><h2>A new AI story, most days.</h2><p>Follow along wherever you scroll.</p></div>
 <div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
 </main>"""
 org = {"@context": "https://schema.org", "@type": "Organization", "name": "Agentic Insider", "url": BASE + "/", "logo": BASE + "/assets/logo.png", "sameAs": [IG, FB]}
 site = {"@context": "https://schema.org", "@type": "WebSite", "name": "Agentic Insider", "url": BASE + "/"}
 faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
-Path("index.html").write_text(shell("Agentic Insider: Open-Source AI Tools, Explained",
-                                    "The open-source AI tools and agents worth your time, checked against the source and explained in 60 seconds, with install steps and official links.",
+Path("index.html").write_text(shell("Agentic Insider: Real AI Stories and Open-Source AI Tools",
+                                    "What AI is really doing: AI hacking cases, leaks and arrests, plus the open-source AI tools worth using. Every fact checked against the source, explained in 60 seconds.",
                                     "", home, [org, site, faq]), encoding="utf-8")
 
 for t in TOOLS:
@@ -276,7 +276,7 @@ for t in TOOLS:
 {"" if t.get("news") else f'<dt>Stars</dt><dd>★ {t["stars"]}K</dd><dt>License</dt><dd>{t["license"]}</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>{e(t["time"])}</dd>'}
 <dt>{"Who should care" if t.get("news") else "Good for"}</dt><dd>{e(t["good"])}</dd><dt>You need</dt><dd>{e(t["needs"])}</dd></dl>
 <a class="btn pri" href="{t["repo"]}" rel="nofollow">{"Read the source" if t.get("news") else "Open on GitHub"}</a><a class="btn" href="{IG}">Follow on Instagram</a></aside></div>
-<section class="follow"><div><h2>A new tool, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
+<section class="follow"><div><h2>A new AI story, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
 </div></main>"""
     art = {"@context": "https://schema.org", "@type": "Article", "headline": t["hook"], "description": t["lead"], "datePublished": t["date"],
            "image": f"{BASE}/assets/{t['cover']}", "dateModified": t["date"], "mainEntityOfPage": f"{BASE}/tools/{t['slug']}.html",
@@ -298,7 +298,7 @@ Path(".nojekyll").write_text("")
 items = "".join(f"<item><title>{e(t['name'])}: {e(t['hook'])}</title><link>{BASE}/tools/{t['slug']}.html</link><guid>{BASE}/tools/{t['slug']}.html</guid>"
                 f"<pubDate>{date.fromisoformat(t['date']).strftime('%a, %d %b %Y')} 12:00:00 +0000</pubDate><description>{e(t['lead'])}</description></item>" for t in TOOLS)
 Path("feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Agentic Insider</title><link>{BASE}/</link>'
-                            f'<description>Open-source AI tools and agents, explained in 60 seconds.</description><language>en</language>{items}</channel></rss>', encoding="utf-8")
+                            f'<description>Real AI stories and open-source AI tools, explained in 60 seconds.</description><language>en</language>{items}</channel></rss>', encoding="utf-8")
 nf = shell("Page not found | Agentic Insider", "This page does not exist.", "404.html",
            f'<section class="hero"><div class="wrap"><h1>Page not found</h1><p>The page you were looking for has moved or never existed.</p>'
            f'<div class="btns"><a class="btn pri" href="{BASE}/">Back to the tools</a></div></div></section>', [])

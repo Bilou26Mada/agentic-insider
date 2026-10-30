@@ -47,6 +47,14 @@ THEMES = {
         eyebrow="Trending on GitHub · October 2026", title="5 free Claude plugins that <em>replace apps you pay for</em>",
         banner=None, shots=[], chips=["★ 21.4K stars combined", "All MIT licensed", "One command each"],
         credit="Screenshots: each project's GitHub page. Agentic Insider is not affiliated with these projects."),
+    "microsoft-voluntary-exit": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #0b2440, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #FFE14D; } .th .ey b { background: #0078D4; }
+.th h1 { font-weight: 800; letter-spacing: -0.03em; } .th h1 em { font-style: normal; color: #FFE14D; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #1c3350; background: #0a1522; }""",
+        eyebrow="Microsoft · October 26, 2026", title="60,000 paid to leave. <em>The word AI: not once.</em>",
+        banner="cover-microsoft-voluntary-exit.jpg", shots=[], chips=["~60,000 eligible", "Gone by Dec 31", "$175B AI spend"],
+        credit="Image: reconstruction. Facts: Microsoft, TechCrunch, CNBC, Reuters, The Verge."),
     "ai-hacker-90-organizations": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #2a0d12, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
 .th .ey { color: #FFE14D; } .th .ey b { background: #E5243B; }

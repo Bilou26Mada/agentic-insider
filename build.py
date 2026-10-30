@@ -12,6 +12,21 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="Microsoft voluntary exit offer: 60,000 eligible, AI teams included", slug="microsoft-voluntary-exit", name="Microsoft exit offer", by="Microsoft", tag="Big Tech", date="2026-10-30",
+         news=True, src="Microsoft blog", repo="https://blogs.microsoft.com/",
+         hook="Microsoft is paying 60,000 people to leave. The word AI isn't in the announcement",
+         lead="On October 26 Microsoft announced a voluntary exit offer open to about a quarter of its workforce, including the Copilot and CoreAI teams, in the same year it expects to spend around $175 billion building AI.",
+         facts=["About 60,000 employees are eligible, roughly one in four, in the US, the UK, Canada and India (TechCrunch)",
+                "Employees decide in December and leave by December 31 (CNBC)",
+                "The stated reason: \"to adapt the workforce to changing needs\" (Microsoft)",
+                "The announcement never uses the word AI",
+                "Microsoft expects to spend around $175 billion in 2026, largely on AI infrastructure (Reuters)",
+                "Copilot and CoreAI teams are among those allowed to take the offer; Microsoft says it does not mean it needs fewer people (The Verge)"],
+         steps=["Read the offer terms line by line: severance, benefits end date, and any clause that stops you from rejoining.",
+                "Price your skills outside first: talk to two recruiters before you decide.",
+                "Ask HR in writing whether your role will be backfilled.",
+                "If you stay, document your AI work: the people who ship AI features are the hardest to cut."],
+         good="Anyone working in big tech, or thinking about it", needs="Ten minutes and the offer letter"),
     dict(seo="AI agent hacking case in South Korea: 90 organizations, 8.2 million records", slug="ai-hacker-90-organizations", name="AI hacking case", by="Seoul police", tag="AI & security", date="2026-10-30",
          news=True, src="JoongAng Daily", repo="https://www.koreajoongangdaily.com/korea/seven-arrested-for-using-generative-ai-to-hack-90-organizations/12938493",
          hook="One man used an AI agent to hack 90 organizations. Police caught him with AI",

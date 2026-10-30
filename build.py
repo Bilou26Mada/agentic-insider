@@ -12,6 +12,22 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="Binance hack: about $6.3 billion stolen, the biggest crypto heist on record", slug="binance-heist", name="Binance heist", by="Binance", tag="AI & security", date="2026-10-31",
+         news=True, src="Fortune", repo="https://fortune.com/2026/10/30/what-we-know-about-binance-hack-biggest-crypto-heist/",
+         hook="The biggest crypto heist in history started with one engineer's laptop",
+         lead="On October 29 money started pouring out of Binance-linked wallets. Binance puts the damage at around $6.3 billion, about four times the previous record, and froze withdrawals while it investigated.",
+         facts=["Binance estimates around $6.3 billion stolen; early outside estimates ranged from $2 billion to $8 billion (Fortune)",
+                "Binance's first finding: a compromised DevOps engineer's laptop let an attacker submit unauthorized withdrawals; a day later it reported \"additional points of breach\"",
+                "Withdrawals were suspended on multiple networks as a precaution (Binance spokesperson, TechCrunch)",
+                "Blockchain firm TRM attributes the attack to North Korea's TraderTraitor unit with high confidence; nobody has claimed it (Al Jazeera, Fortune)",
+                "The previous record was the $1.5 billion Bybit hack in 2025",
+                "About $3 billion has been frozen with partners, including about $1.56 billion by Tether; Binance has pledged to cover all losses",
+                "Elon Musk: \"Super intelligence agents will at some point do this to gain currency for themselves, not a human.\" (Fortune)"],
+         steps=["Keep only what you trade on an exchange; move long-term holdings to a wallet you control.",
+                "Turn on withdrawal address allowlists and app-based two-factor authentication on every exchange account.",
+                "Ignore anyone who contacts you offering to 'recover' frozen funds: it is the classic follow-up scam after a big hack.",
+                "Follow the exchange's official channels only for refund news."],
+         good="Anyone holding crypto on an exchange", needs="Ten minutes in your exchange's security settings"),
     dict(seo="Microsoft voluntary exit offer: 60,000 eligible, AI teams included", slug="microsoft-voluntary-exit", name="Microsoft exit offer", by="Microsoft", tag="Big Tech", date="2026-10-30",
          news=True, src="Microsoft blog", repo="https://blogs.microsoft.com/",
          hook="Microsoft is paying 60,000 people to leave. The word AI isn't in the announcement",

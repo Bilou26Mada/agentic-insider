@@ -1,6 +1,14 @@
 # Per-publisher announcement heroes for tool pages: each one uses the publisher's own official images and visual
 # language (colours, type) from its repository, plus a clear "not affiliated" credit line.
 THEMES = {
+    "binance-heist": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #2a210a, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #FFE14D; } .th .ey b { background: #E5243B; }
+.th h1 { font-weight: 800; letter-spacing: -0.03em; } .th h1 em { font-style: normal; color: #FFE14D; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #3a321a; background: #14110a; }""",
+        eyebrow="Binance · October 29-30, 2026", title="One laptop. <em>About $6.3 billion gone.</em>",
+        banner="cover-binance-heist.jpg", shots=[], chips=["~$6.3B estimated", "4x the old record", "~$3B frozen"],
+        credit="Image: reconstruction. Facts: Binance, TechCrunch, Fortune, CoinDesk, Al Jazeera."),
     "google-artemis": dict(font="Outfit:wght@200;300;600", css="""
 .th { background: radial-gradient(ellipse at 20% 30%, #1b2233, #05070b 70%); color: #fff; font-family: Outfit, sans-serif; }
 .th .ey { color: #9aa0a6; } .th .ey b { background: conic-gradient(#4285F4 0 25%, #EA4335 0 50%, #FBBC05 0 75%, #34A853 0); }

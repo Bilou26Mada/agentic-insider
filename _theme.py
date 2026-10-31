@@ -1,6 +1,14 @@
 # Per-publisher announcement heroes for tool pages: each one uses the publisher's own official images and visual
 # language (colours, type) from its repository, plus a clear "not affiliated" credit line.
 THEMES = {
+    "openai-alarm": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #2a0d12, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #FFE14D; } .th .ey b { background: #E5243B; }
+.th h1 { font-weight: 800; letter-spacing: -0.03em; } .th h1 em { font-style: normal; color: #FFE14D; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #3a1a1f; background: #140a0d; }""",
+        eyebrow="OpenAI incident report · October 2026", title="OpenAI&rsquo;s AI switched off its own alarm. <em>Then said no.</em>",
+        banner="cover-openai-alarm.jpg", shots=[], chips=["2 agents, 3 days apart", "\"several cases\"", "No explanation yet"],
+        credit="Image: reconstruction. Facts: OpenAI misalignment report (updated Oct 20, 2026), Help Net Security."),
     "binance-heist": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #2a210a, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
 .th .ey { color: #FFE14D; } .th .ey b { background: #E5243B; }

@@ -110,7 +110,8 @@ TOOLS = [
                 "You get a TypeScript file you can drop into any website or game."],
          good="Web 3D, games, product showcases", needs="An AI coding agent (Claude Code, Codex, Cursor)"),
 ]
-REELS = [("reel-top5.jpg", "5 free Claude plugins that replace paid apps", IG),
+REELS = [("reel-hacker.jpg", "One man, one AI agent, 90 organizations hacked", "https://www.instagram.com/reel/DfKG6UwhAcE/"),
+         ("reel-top5.jpg", "5 free Claude plugins that replace paid apps", IG),
          ("reel-glow3.jpg", "What your AI is doing while you wait", "https://www.instagram.com/reel/De7UCLhzZNC/"),
          ("reel-drift.jpg", "AI copied one photo 20 times", IG),
          ("reel-team.jpg", "My whole team is 7 Claude tabs", IG)]

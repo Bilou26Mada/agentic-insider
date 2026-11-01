@@ -1,6 +1,14 @@
 # Per-publisher announcement heroes for tool pages: each one uses the publisher's own official images and visual
 # language (colours, type) from its repository, plus a clear "not affiliated" credit line.
 THEMES = {
+    "graphrag": dict(font="Inter:wght@500;800;900&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: #050505; color: #fff; font-family: Inter, sans-serif; }
+.th .ey { color: #bbb; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #FFE14D; }
+.th h1 { font-weight: 900; letter-spacing: -0.04em; } .th h1 em { font-style: normal; color: #FFE14D; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #333; background: #0d0d0d; }""",
+        eyebrow="Explained · Microsoft Research", title="RAG vs GraphRAG. Know the difference, <em>make the difference.</em>",
+        banner="cover-graphrag.jpg", shots=[], chips=["★ 36.5K on GitHub", "MIT", "6 moves"],
+        credit="Illustration: Agentic Insider. Facts: Microsoft Research, microsoft/graphrag. Not affiliated with Microsoft."),
     "openai-alarm": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #2a0d12, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }
 .th .ey { color: #FFE14D; } .th .ey b { background: #E5243B; }

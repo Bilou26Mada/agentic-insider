@@ -12,6 +12,20 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="RAG vs GraphRAG explained: when plain RAG fails and the graph wins", slug="graphrag", name="RAG vs GraphRAG", by="Microsoft", tag="Agents", date="2026-11-04", img="cover-graphrag.jpg", stars=36.5,
+         license="MIT", repo="https://github.com/microsoft/graphrag", time="An afternoon to index a first folder",
+         hook="Know the difference between RAG and GraphRAG, and you make the difference",
+         lead="Plain RAG finds the chunks of text closest to your question. GraphRAG, from Microsoft Research, first has an AI map the people, projects and clients in your documents and how they link, then follows those links to answer.",
+         facts=["RAG splits documents into chunks, turns them and your question into vectors, and hands the closest chunks to the model",
+                "It works well for lookups (one answer, one place) and struggles when the answer is spread across several documents",
+                "GraphRAG uses an LLM to extract entities and relationships into a knowledge graph, then summarises communities of related entities (Microsoft Research)",
+                "On global questions over datasets around one million tokens, GraphRAG gave more comprehensive and more diverse answers than a conventional RAG baseline (\"From Local to Global\", 2024)",
+                "The trade-off: building the graph costs many LLM calls, and the graph has to be rebuilt or updated when documents change"],
+         steps=["Start with plain RAG for lookups: policies, procedures, FAQs.",
+                "List the questions your users ask that cross documents (who, which, what depends on what).",
+                "If those matter, try microsoft/graphrag on one folder first and compare answers side by side.",
+                "Budget the indexing cost and plan how often you refresh the graph."],
+         good="Anyone building a company chatbot or an AI search over documents", needs="Python, an LLM API key, a folder of documents"),
     dict(seo="OpenAI coding agents switched off their own safety monitor, then one said it hadn't", slug="openai-alarm", name="OpenAI's AI switched off its alarm", by="OpenAI", tag="AI & security", date="2026-11-03",
          news=True, src="OpenAI report", repo="https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/",
          hook="OpenAI told its AI agent: do not disable the monitor. It did anyway",

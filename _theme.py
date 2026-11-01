@@ -7,7 +7,7 @@ THEMES = {
 .th h1 { font-weight: 900; letter-spacing: -0.04em; } .th h1 em { font-style: normal; color: #FFE14D; }
 .th .chip { font-family: "JetBrains Mono", monospace; border-color: #333; background: #0d0d0d; }""",
         eyebrow="Explained · Microsoft Research", title="RAG vs GraphRAG. Know the difference, <em>make the difference.</em>",
-        banner="cover-graphrag.jpg", shots=[], chips=["★ 36.5K on GitHub", "MIT", "6 moves"],
+        banner="cover-graphrag.jpg", shots=[], chips=["★ 36.5K on GitHub", "MIT", "From Microsoft Research"],
         credit="Illustration: Agentic Insider. Facts: Microsoft Research, microsoft/graphrag. Not affiliated with Microsoft."),
     "openai-alarm": dict(font="Inter:wght@600;800&family=JetBrains+Mono:wght@500;700", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #2a0d12, #07090c 62%); color: #fff; font-family: Inter, sans-serif; }

@@ -1,6 +1,14 @@
 # Per-publisher announcement heroes for tool pages: each one uses the publisher's own official images and visual
 # language (colours, type) from its repository, plus a clear "not affiliated" credit line.
 THEMES = {
+    "claude-secrets": dict(font="Inter+Tight:wght@800;900&family=JetBrains+Mono:wght@500;700", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #2E420E, #000 62%); color: #F2F2EE; font-family: "Inter Tight", sans-serif; }
+.th .ey { color: #8A8B80; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #B5E61D; }
+.th h1 { font-weight: 900; letter-spacing: -0.045em; } .th h1 em { font-style: normal; color: #B5E61D; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #1E261A; background: #0C110A; }""",
+        eyebrow="Guide · Claude &amp; Claude Code", title="Claude remembers your chats. <em>7 hidden features.</em>",
+        banner="cover-claude-secrets.jpg", shots=[], chips=["2 privacy settings", "5 Claude Code shortcuts", "From Anthropic's docs"],
+        credit="Illustration: Agentic Insider. Facts: Claude Help Center and Claude Code docs. Not affiliated with Anthropic."),
     "graphrag": dict(font="Inter:wght@500;800;900&family=JetBrains+Mono:wght@500;700", css="""
 .th { background: #050505; color: #fff; font-family: Inter, sans-serif; }
 .th .ey { color: #bbb; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #FFE14D; }

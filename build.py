@@ -12,6 +12,25 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="7 hidden Claude features most users never touch: incognito chats, memory, plan mode, rewind, /btw", slug="claude-secrets", name="7 hidden Claude features", by="Anthropic", tag="Guides", date="2026-11-02",
+         news=True, h1="The 7 features", h2="Step by step", src="Claude Help Center", repo="https://support.claude.com/en/articles/14553413-claude-code-cheatsheet",
+         hook="Claude remembers your chats by default. Here are 7 hidden features most users never touch",
+         lead="Memory is on by default on Claude's Free, Pro, Max and Ultra plans. Two settings in the Claude app control what it keeps, and five shortcuts in Claude Code change how you work. Every step below comes from Anthropic's own documentation.",
+         facts=["Memory is on by default for Free, Pro, Max and Ultra plans on the web, Claude Desktop and Claude Mobile; on Team and Enterprise plans, owners decide (Claude Help Center)",
+                "Incognito chats are not saved to your chat history or to Claude's memory, and Claude won't use your existing memory in them (Claude Help Center)",
+                "Incognito chats are still kept for 30 days by default and are not used for training (Claude Help Center)",
+                "In Claude Code, Shift + Tab cycles the permission modes, including plan mode, where Claude explores and proposes without editing files (Claude Code docs)",
+                "Esc twice on an empty prompt opens the rewind menu to restore code and conversation from an earlier point (Claude Code docs)",
+                "/btw asks a quick side question without adding it to the main conversation (Claude Code cheatsheet)",
+                "Starting a line with ! runs a shell command, adds its output to the session, and Claude responds to it (Claude Code docs)"],
+         steps=["<strong>Incognito chat:</strong> start a new chat outside a project and click the ghost icon in the top right corner. A black border and an \"Incognito chat\" label confirm it.",
+                "<strong>Memory:</strong> open Settings &gt; Your Claude, then Memory from chats. Pause it, or reset it to wipe what Claude kept.",
+                "<strong>Plan mode:</strong> in Claude Code, press Shift + Tab until the mode indicator shows plan. Claude plans and touches nothing until you approve.",
+                "<strong>Rewind:</strong> with an empty prompt, press Esc twice and pick the point you want to go back to, for code and conversation.",
+                "<strong>Side question:</strong> type <code>/btw</code> followed by your question. The answer doesn't clog the main chat.",
+                "<strong>Run a command:</strong> type <code>! npm test</code> (or any command). It runs, and Claude reads the result.",
+                "<strong>Paste a screenshot:</strong> Ctrl + V in the terminal (Cmd + V in iTerm2, Alt + V on Windows). An [Image #1] tag appears in your prompt."],
+         good="Anyone who uses Claude or Claude Code every day", needs="The Claude app, or Claude Code in a terminal"),
     dict(seo="RAG vs GraphRAG explained simply: when a search fails and a map wins", slug="graphrag", name="RAG vs GraphRAG", by="Microsoft", tag="Agents", date="2026-11-02", img="cover-graphrag.jpg", stars=36.5,
          license="MIT", repo="https://github.com/microsoft/graphrag", time="An afternoon to try it on a first folder",
          hook="Know the difference between RAG and GraphRAG, and you make the difference",
@@ -330,8 +349,8 @@ for t in TOOLS:
     body = hero(t) + f"""<main class="panel"><div class="wrap"><div class="art"><article>
 <div class="crumbs"><a href="../index.html">Agentic Insider</a> / <a href="../index.html#tools">Tools</a> / {e(t["name"])}</div>
 <div class="byline">By the Agentic Insider desk · {fmt_date(t["date"])} · Sources: <a href="{t["repo"]}" rel="nofollow">{t.get("src") or t["repo"].replace("https://github.com/", "")}</a></div>
-{list_body(t) if t.get("items") else f'''<h2>{"What happened" if t.get("news") else "Why it matters"}</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
-<h2>{"How to protect yourself" if t.get("news") else "How to try it"}</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'''}
+{list_body(t) if t.get("items") else f'''<h2>{t.get("h1") or ("What happened" if t.get("news") else "Why it matters")}</h2><ul>{"".join(f"<li>{e(f)}</li>" for f in t["facts"])}</ul>
+<h2>{t.get("h2") or ("How to protect yourself" if t.get("news") else "How to try it")}</h2><ol>{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'''}
 <h2>{"Source" if t.get("news") else "Official link"}</h2><p style="font-size:18px"><a style="color:var(--acc);font-weight:600;text-decoration:underline" href="{t["repo"]}" rel="nofollow">{t["repo"].replace("https://", "")}</a></p>
 <h2>More tools</h2><div class="more">{"".join(tile(o).replace('href="tools/', 'href="').replace('src="assets/', 'src="../assets/') for o in others[:2])}</div>
 </article><aside class="glance"><h4>At a glance</h4><dl><dt>Tool</dt><dd>{e(t["name"])}</dd><dt>By</dt><dd>{e(t["by"])}</dd>

@@ -1,6 +1,14 @@
 # Per-publisher announcement heroes for tool pages: each one uses the publisher's own official images and visual
 # language (colours, type) from its repository, plus a clear "not affiliated" credit line.
 THEMES = {
+    "ai-agent-teams": dict(font="Inter:wght@300;400;600&family=Instrument+Serif:ital@1", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #3A1E08, #000 62%); color: #F3E9DD; font-family: Inter, sans-serif; }
+.th .ey { color: #B89A80; } .th .ey b { background: #F2A65A; }
+.th h1 { font-weight: 600; letter-spacing: -0.02em; } .th h1 em { font-family: "Instrument Serif", serif; font-weight: 400; color: #F2A65A; }
+.th .chip { border-color: #3A2516; background: #120B06; }""",
+        eyebrow="Explained · How AI agents work, part 2", title="How AI agent <em>teams</em> work",
+        banner="cover-ai-agent-teams.jpg", shots=[], chips=["1 lead, helpers in parallel", "+90.2% vs one agent", "From Anthropic Engineering"],
+        credit="Illustration: Agentic Insider. Facts: Anthropic Engineering, \"How we built our multi-agent research system\" (2025). Not affiliated with Anthropic."),
     "claude-secrets": dict(font="Inter+Tight:wght@800;900&family=JetBrains+Mono:wght@500;700", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #2E420E, #000 62%); color: #F2F2EE; font-family: "Inter Tight", sans-serif; }
 .th .ey { color: #8A8B80; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #B5E61D; }

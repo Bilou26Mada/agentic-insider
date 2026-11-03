@@ -12,6 +12,23 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="What is MCP? How AI agents plug into your apps (Model Context Protocol), explained simply", slug="mcp", name="How AI agents plug into your apps (MCP)", by="Anthropic", tag="Agents", date="2026-11-06",
+         news=True, h1="How it works", h2="Try it yourself", src="modelcontextprotocol.io", repo="https://modelcontextprotocol.io/docs/getting-started/intro",
+         hook="One plug for every app: how AI agents connect to your tools with MCP",
+         lead="On its own, an AI agent can only talk. MCP, the Model Context Protocol, gives it one standard way to reach your apps: each app runs a small server, the agent asks it which tools it offers, picks one, and the app asks you before anything runs. Anthropic open-sourced it in November 2024.",
+         facts=["\"Think of MCP like a USB-C port for AI applications\" (modelcontextprotocol.io)",
+                "MCP was created at Anthropic and open-sourced on November 25, 2024 (Anthropic)",
+                "Three roles: the host is the AI app, the client is the connector inside it, the server is the service that offers tools and data (MCP spec, 2025-06-18)",
+                "A server can offer tools (functions the model runs), resources (data) and prompts (templates) (MCP spec)",
+                "The agent discovers tools with a tools/list request and runs one with tools/call (MCP spec)",
+                "\"Hosts must obtain explicit user consent before invoking any tool\" (MCP spec)",
+                "Claude, ChatGPT, Visual Studio Code and Cursor support MCP (modelcontextprotocol.io)"],
+         steps=["<strong>Pick one app you use every day</strong> (files, calendar, GitHub) and look for its MCP server in your AI app's connector list.",
+                "<strong>Add it in your AI app:</strong> in Claude, Settings &gt; Connectors; in Claude Code, <code>claude mcp add</code>.",
+                "<strong>Ask the agent what it can do now.</strong> It lists the tools the server offers.",
+                "<strong>Read every approval pop-up</strong> before you click Allow: it names the tool and what it will touch.",
+                "<strong>Only install servers you trust.</strong> A server can see and do whatever its tools allow, so start with official ones."],
+         good="Anyone who wants an AI agent to work with their real apps", needs="An AI app that supports MCP (Claude, ChatGPT, VS Code, Cursor)"),
     dict(seo="How AI agent teams work: one lead agent, helpers in parallel, a clean memory each, one checked answer", slug="ai-agent-teams", name="How AI agent teams work", by="Anthropic", tag="Agents", date="2026-11-05",
          news=True, h1="How it works", h2="Try it yourself", src="Anthropic Engineering", repo="https://www.anthropic.com/engineering/multi-agent-research-system",
          hook="One agent leads, splits the job, and helpers work on it at the same time",

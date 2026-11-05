@@ -1,6 +1,14 @@
 # Per-publisher announcement heroes for tool pages: each one uses the publisher's own official images and visual
 # language (colours, type) from its repository, plus a clear "not affiliated" credit line.
 THEMES = {
+    "ai-memory": dict(font="Inter:wght@300;400;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #3A1E08, #000 62%); color: #F3E9DD; font-family: Inter, sans-serif; }
+.th .ey { color: #B89A80; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #F2A65A; }
+.th h1 { font-weight: 600; letter-spacing: -0.02em; } .th h1 em { font-family: "Instrument Serif", serif; font-weight: 400; color: #F2A65A; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #3A2516; background: #120B06; }""",
+        eyebrow="Explained · How AI agents work, part 4", title="How AI agents <em>remember</em>",
+        banner="cover-ai-memory.jpg", shots=[], chips=["Every turn re-sends the chat", "Up to 1M tokens", "Memory = notes in files"],
+        credit="Illustration: Agentic Insider. Facts: Claude docs (context windows, memory tool) and Claude Code docs. Not affiliated with Anthropic."),
     "mcp": dict(font="Inter:wght@300;400;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #3A1E08, #000 62%); color: #F3E9DD; font-family: Inter, sans-serif; }
 .th .ey { color: #B89A80; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #F2A65A; }

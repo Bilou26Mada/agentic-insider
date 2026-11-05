@@ -12,6 +12,23 @@ BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
 TOOLS = [
+    dict(seo="How AI agents remember: context window, compaction and memory files, explained simply", slug="ai-memory", name="How AI agents remember", by="Anthropic", tag="Agents", date="2026-11-07",
+         news=True, h1="How it works", h2="Try it yourself", src="platform.claude.com", repo="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+         hook="Your AI agent forgets you after every message. Here is how it fakes a memory",
+         lead="A language model keeps nothing between two messages. Each turn, the app sends it the whole conversation again, and all of it has to fit in one context window. When that window fills up, old turns get summarized. Real long-term memory is something else: notes saved in files that the agent reads before it starts a task.",
+         facts=["Each request contains \"all previous conversation history plus the current user message\" (Claude docs, context windows)",
+                "Current Claude models have a context window of up to 1 million tokens; older ones 200,000 (Claude docs)",
+                "When long conversations approach the limit, \"server-side compaction is the primary strategy\": older turns are summarized (Claude docs)",
+                "The memory tool lets Claude \"store and retrieve information across conversations in a directory of memory files\" (Claude docs, memory tool)",
+                "With it enabled, Claude \"automatically checks its memory directory before starting a task\" (Claude docs)",
+                "Memory lives in your application: you decide where the files are stored (Claude docs)",
+                "In Claude Code, CLAUDE.md files are \"loaded at launch\" in every session (Claude Code docs)"],
+         steps=["<strong>Notice the reset:</strong> open a new chat and ask what it knows about you. Without a memory feature, nothing.",
+                "<strong>Turn memory on or off</strong> in Claude under Settings, and look at what it saved. You can edit or wipe it.",
+                "<strong>In Claude Code, write a CLAUDE.md</strong> at the root of your project: your rules, your stack, your commands. It is read at every launch.",
+                "<strong>Keep it short.</strong> Anthropic suggests under 200 lines per CLAUDE.md file.",
+                "<strong>Long chat going off the rails?</strong> Start a fresh one with a short summary: a clean context beats a squeezed one."],
+         good="Anyone who wonders why their AI forgets, or wants it to remember the right things", needs="Claude (memory setting) or Claude Code (CLAUDE.md)"),
     dict(seo="What is MCP? How AI agents plug into your apps (Model Context Protocol), explained simply", slug="mcp", name="How AI agents plug into your apps (MCP)", by="Anthropic", tag="Agents", date="2026-11-06",
          news=True, h1="How it works", h2="Try it yourself", src="modelcontextprotocol.io", repo="https://modelcontextprotocol.io/docs/getting-started/intro",
          hook="One plug for every app: how AI agents connect to your tools with MCP",

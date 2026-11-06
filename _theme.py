@@ -17,6 +17,14 @@ THEMES = {
         eyebrow="List · 30 MCP servers", title="30 open-source <em>MCP servers</em>",
         banner="cover-mcp-servers.jpg", shots=[], chips=["Checked on GitHub", "Official repos first", "Open source"],
         credit="Illustration: Agentic Insider. Sources: each publisher's GitHub repository, checked Nov 6, 2026. Logos belong to their owners. Not affiliated with Anthropic."),
+    "fix-setup": dict(font="Inter:wght@300;400;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500", css="""
+.th { background: radial-gradient(ellipse at 50% 0%, #3A1E08, #000 62%); color: #F3E9DD; font-family: Inter, sans-serif; }
+.th .ey { color: #B89A80; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #F2A65A; }
+.th h1 { font-weight: 600; letter-spacing: -0.02em; } .th h1 em { font-family: "Instrument Serif", serif; font-weight: 400; color: #F2A65A; }
+.th .chip { font-family: "JetBrains Mono", monospace; border-color: #3A2516; background: #120B06; }""",
+        eyebrow="Setup · Claude Code", title="The Claude Code <em>bug-fixing</em> setup",
+        banner="cover-fix-setup.jpg", shots=[], chips=["#1 GitHub MCP", "#2 Context7", "#3 Chrome DevTools", "#4 Playwright"],
+        credit="Illustration: Agentic Insider. Install commands from each project's GitHub repository, checked Nov 6, 2026. Not affiliated with Anthropic."),
     "mcp": dict(font="Inter:wght@300;400;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500", css="""
 .th { background: radial-gradient(ellipse at 50% 0%, #3A1E08, #000 62%); color: #F3E9DD; font-family: Inter, sans-serif; }
 .th .ey { color: #B89A80; font-family: "JetBrains Mono", monospace; } .th .ey b { background: #F2A65A; }

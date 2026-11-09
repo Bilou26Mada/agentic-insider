@@ -238,6 +238,39 @@ REELS = [("reel-hacker.jpg", "One man, one AI agent, 90 organizations hacked", "
          ("reel-glow3.jpg", "What your AI is doing while you wait", "https://www.instagram.com/reel/De7UCLhzZNC/"),
          ("reel-drift.jpg", "AI copied one photo 20 times", IG),
          ("reel-team.jpg", "My whole team is 7 Claude tabs", IG)]
+# "Free setups" page (linked from the Instagram bio): every install command shown in a reel, newest first.
+# (title, what you get, reel url, keyword, [(label, command)], repo url, page slug or None)
+SETUPS = [
+    ("/retro: catch the mistakes your AI agent hides", "A free skill by Matt Pocock that reads what your coding agent actually did in a session and lists what went wrong and what to change next time.",
+     "https://www.instagram.com/reel/DfiKhRIPCTE/", "RETRO",
+     [("Install Matt Pocock's skills (Claude Code)", "claude plugin install mattpocock-skills@claude-plugins-official"),
+      ("Then, inside Claude Code", "/retro look at my previous session")],
+     "https://github.com/mattpocock/skills", None),
+    ("The Claude Code bug-fixing setup (4 MCP servers)", "GitHub MCP reads the bug report, Context7 brings today's docs, Chrome DevTools MCP sees the console errors, Playwright MCP clicks through and tests the fix.",
+     "https://www.instagram.com/reel/DffWcAJBEA4/", "FIX",
+     [("#1 GitHub MCP", 'claude mcp add --transport http github https://api.githubcopilot.com/mcp -H "Authorization: Bearer YOUR_GITHUB_PAT"'),
+      ("#2 Context7", "npx ctx7 setup --claude"),
+      ("#3 Chrome DevTools MCP (inside Claude Code)", "/plugin marketplace add ChromeDevTools/chrome-devtools-mcp\n/plugin install chrome-devtools-mcp@chrome-devtools-plugins"),
+      ("#4 Playwright MCP", "claude mcp add playwright npx @playwright/mcp@latest")],
+     "https://github.com/github/github-mcp-server", "fix-setup"),
+    ("30 open-source MCP servers", "Plug your AI agent into GitHub, Playwright, Notion, Supabase, Stripe, Cloudflare and 24 more apps. Every link goes to the publisher's own repository.",
+     "https://www.instagram.com/p/DfcIfKwCCkW/", "MCP",
+     [("Add any server to Claude Code (example: Playwright)", "claude mcp add playwright npx @playwright/mcp@latest")],
+     "https://github.com/modelcontextprotocol/servers", "mcp-servers"),
+    ("5 free Claude Code plugins that replace paid apps", "Rebuild an app, design a logo, get answers as one-page visuals, edit a video, ship a pull request with nobody watching.",
+     "https://www.instagram.com/reel/DfNU4ChhyNg/", None,
+     [("Replica", "/plugin marketplace add Jakeschincariol/replica-skill\n/plugin install replica-skill@replica-skill"),
+      ("Logo Design", "/plugin marketplace add kaankiziltug/logo-design-skill\n/plugin install logo-design@logo-design-skill"),
+      ("Answer me with HTML", "/plugin marketplace add QingYunA/answer-me-with-html\n/plugin install answer-me-with-html@answer-me-with-html"),
+      ("OpenFilm", "npx skills add openfilm/openfilm"),
+      ("tstack", "git clone https://github.com/t3dotgg/tstack\n# then copy its skills folder into ~/.claude/skills/")],
+     None, "top-5-claude-plugins"),
+    ("ARTEMIS: an AI that uses an Android phone", "Google's open-source agent reads the screen and taps, types and swipes on a real Android phone until the job is done.",
+     None, None,
+     [("Mac / Linux, from the cloned repo", "git clone https://github.com/google/artemis\ncd artemis && ./start.sh"),
+      ("Windows", "start.bat")],
+     "https://github.com/google/artemis", "google-artemis"),
+]
 FAQ = [("What is Agentic Insider?", "A daily media on what AI is really doing: the cases, leaks and arrests behind the headlines, and the open-source AI tools worth using. Every story gets a short video on Instagram and Facebook, and a page here with the sources, what it means for you and, for tools, how to install it and the official link."),
        ("Are the tools free?", "Every tool we cover is open source with a free license (for example MIT or Apache 2.0). Some let you plug in a paid AI model if you want to."),
        ("Do you test the tools?", "We check every claim against the project's official repository and documentation, and we link to it so you can verify before installing anything."),
@@ -329,6 +362,8 @@ code { background: #1111110d; padding: 1px 6px; font-size: 0.88em; border-radius
 .more img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; margin-bottom: 10px; }
 .hero { text-align: center; padding: 90px 0; } .hero h1 { font-family: "Newsreader", serif; font-size: 54px; font-weight: 600; } .hero p { color: var(--soft); margin: 10px 0 24px; }
 .hidden { display: none !important; }
+.banner { display: block; background: var(--ink); color: var(--paper); text-align: center; padding: 12px 16px; font-weight: 600; font-size: 15px; }
+.banner:hover { background: var(--acc); }
 @media (max-width: 860px) {
   .front, .about, .art { grid-template-columns: minmax(0, 1fr); } .lead-story { padding-right: 0; border-right: 0; } .rail { padding-left: 0; margin-top: 30px; }
   .list, .more { grid-template-columns: 1fr; } .reels { grid-template-columns: repeat(2, 1fr); } .sections .wrap { gap: 18px; overflow-x: auto; justify-content: flex-start; }
@@ -345,12 +380,12 @@ def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630
     today = date.today().strftime("%A, %B %d, %Y").replace(" 0", " ")
     if rel:  # article pages: slim sticky bar
         header = (f'<header class="slim"><div class="wrap"><a class="logo" href="../index.html">Agentic Insider</a>'
-                  f'<nav><a class="x" href="../index.html#latest">Latest</a><a class="x" href="../index.html#reels">Reels</a><a href="{IG}">Instagram</a></nav></div></header>')
+                  f'<nav><a class="x" href="../index.html#latest">Latest</a><a href="../setups.html">Free setups</a><a class="x" href="../index.html#reels">Reels</a><a href="{IG}">Instagram</a></nav></div></header>')
     else:
         header = (f'<div class="top"><div class="wrap"><span class="ed">{today}</span><span><a href="{IG}">Instagram</a> · <a href="{FB}">Facebook</a> · <a href="feed.xml">RSS</a></span></div></div>'
                   f'<header class="mast"><div class="wrap"><a class="name" href="index.html">Agentic Insider</a>'
                   f'<div class="tag">What AI is really doing, and the tools worth using. Every fact sourced.</div></div></header>'
-                  f'<nav class="sections"><div class="wrap"><a class="on" href="#latest">Latest</a><a href="#tools">All tools</a><a href="#reels">Reels</a><a href="#about">About</a></div></nav>')
+                  f'<nav class="sections"><div class="wrap"><a class="on" href="index.html#latest">Latest</a><a href="setups.html">Free setups</a><a href="index.html#tools">All tools</a><a href="index.html#reels">Reels</a><a href="index.html#about">About</a></div></nav>')
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -389,7 +424,8 @@ def list_body(t):  # ranked roundup: what it does for you, proof, install comman
 
 
 lead, rest = TOOLS[0], TOOLS[1:]
-home = f"""<main class="wrap">
+home = f"""<a class="banner" href="setups.html">Came from Instagram? Every free setup from our reels, ready to copy →</a>
+<main class="wrap">
 <section class="front" id="latest">
 <article class="lead-story"><a href="tools/{lead["slug"]}.html"><img src="assets/{lead["cover"]}" width="1600" height="900" alt="{e(lead["name"])}"></a>
 <div class="kick" style="margin-top:16px">{lead["tag"]} · {lead["by"]}</div>
@@ -444,7 +480,42 @@ for t in TOOLS:
     Path(f"tools/{t['slug']}.html").write_text(shell(t["seo"], t["lead"], f"tools/{t['slug']}.html", body,
                                                      [art, crumbs], f"assets/{t['cover']}", 1200, 750, BASE_CSS + THEMES[t['slug']]['css'], THEMES[t['slug']]['font']), encoding="utf-8")
 
-urls = [(BASE + "/", max(t['date'] for t in TOOLS))] + [(f"{BASE}/tools/{t['slug']}.html", t['date']) for t in TOOLS]
+def setup_card(k, s):
+    title, what, reel, kw, cmds, repo, slug = s
+    links = []
+    if reel: links.append(f'<a href="{reel}">Watch the reel</a>')
+    if slug: links.append(f'<a href="tools/{slug}.html">Full guide</a>')
+    if repo: links.append(f'<a href="{repo}" rel="nofollow">{repo.replace("https://", "")}</a>')
+    return (f'<section class="setup" id="s{k + 1}"><div class="n">{k + 1:02d}</div><div>'
+            f'<h2>{e(title)}</h2><p class="what">{e(what)}</p>'
+            + "".join(f'<div class="cmdl">{e(lbl)}</div><pre><code>{e(c)}</code></pre>' for lbl, c in cmds)
+            + f'<div class="links">{" · ".join(links)}{f" · On Instagram, comment <strong>{kw}</strong> and we DM it to you" if kw else ""}</div></div></section>')
+
+
+SETUP_CSS = """
+.sh { padding: 40px 0 10px; } .sh h1 { font-family: "Newsreader", serif; font-weight: 600; font-size: clamp(34px, 5vw, 54px); line-height: 1.05; letter-spacing: -0.02em; }
+.sh p { font-size: 19px; color: var(--soft); max-width: 720px; margin-top: 12px; }
+.setup { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 10px; padding: 34px 0; border-bottom: 1px solid var(--rule); }
+.setup .n { font-family: "Newsreader", serif; font-size: 40px; color: var(--acc); line-height: 1; }
+.setup h2 { font-family: "Newsreader", serif; font-size: 28px; font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
+.setup .what { color: var(--soft); margin: 8px 0 14px; max-width: 760px; }
+.setup .cmdl { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); margin-top: 14px; }
+.setup pre { background: #0D1117; color: #e6edf3; padding: 14px 16px; margin: 6px 0 0; border-radius: 4px; overflow-x: auto; font-size: 15px; }
+.setup pre code { background: none; padding: 0; }
+.setup .links { margin-top: 16px; font-size: 15px; color: var(--mute); } .setup .links a { color: var(--acc); font-weight: 600; text-decoration: underline; }
+@media (max-width: 860px) { .setup { grid-template-columns: minmax(0, 1fr); } }
+"""
+setups_body = (f'<main class="wrap"><section class="sh"><div class="kick">Free setups</div><h1>Every setup from our reels, ready to copy</h1>'
+               f'<p>The exact install commands shown in our videos, newest first. Each one comes from the project\'s own repository; read what a tool can access before you install it.</p></section>'
+               + "".join(setup_card(k, s) for k, s in enumerate(SETUPS))
+               + f'<section class="follow"><div><h2>A new setup most days.</h2><p>Follow along on Instagram and Facebook.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section></main>')
+howto = {"@context": "https://schema.org", "@type": "ItemList", "name": "Free AI agent setups", "itemListElement": [
+    {"@type": "ListItem", "position": k + 1, "name": s[0], "url": f"{BASE}/setups.html#s{k + 1}"} for k, s in enumerate(SETUPS)]}
+Path("setups.html").write_text(shell("Free AI agent setups: every install command from our reels | Agentic Insider",
+                                     "Copy-paste install commands for every AI agent setup shown in our reels: Claude Code MCP servers, /retro, free plugins and more, each linked to its official repository.",
+                                     "setups.html", setups_body, [howto], extra_css=SETUP_CSS).replace('class="on" href="index.html#latest"', 'href="index.html#latest"').replace('href="setups.html">Free setups', 'class="on" href="setups.html">Free setups'), encoding="utf-8")
+
+urls = [(BASE + "/", max(t['date'] for t in TOOLS)), (BASE + "/setups.html", date.today().isoformat())] + [(f"{BASE}/tools/{t['slug']}.html", t['date']) for t in TOOLS]
 Path("sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                                + "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n", encoding="utf-8")
 Path("robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")

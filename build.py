@@ -241,6 +241,12 @@ REELS = [("reel-hacker.jpg", "One man, one AI agent, 90 organizations hacked", "
 # "Free setups" page (linked from the Instagram bio): every install command shown in a reel, newest first.
 # (title, what you get, reel url, keyword, [(label, command)], repo url, page slug or None)
 SETUPS = [
+    ("Astryx: Meta's design system, built with your AI agent", "The open-source design system behind 13,000+ of Meta's apps: 150+ components, dark mode, templates and seven themes, under MIT. Install the CLI once and your coding agent knows how to build with it. Still in beta.",
+     None, "ASTRYX",
+     [("Install the Astryx CLI (once, for your computer)", "npm i -g @astryxdesign/cli"),
+      ("In your React project", "npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex" + chr(10) + "npx astryx init --agent claude"),
+      ("Then ask your coding agent", "Build an analytics dashboard with Astryx")],
+     "https://github.com/meta/astryx", None),
     ("/retro: catch the mistakes your AI agent hides", "A free skill by Matt Pocock that reads what your coding agent actually did in a session and lists what went wrong and what to change next time.",
      "https://www.instagram.com/reel/DfiKhRIPCTE/", "RETRO",
      [("Install Matt Pocock's skills (Claude Code)", "claude plugin install mattpocock-skills@claude-plugins-official"),

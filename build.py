@@ -11,6 +11,7 @@ from pathlib import Path
 BASE = "https://bilou26mada.github.io/agentic-insider"
 IG = "https://www.instagram.com/agentic_insider/"
 FB = "https://www.facebook.com/agenticinsider"
+YT = "https://www.youtube.com/@agenticinsider"
 TOOLS = [
     dict(seo="Claude Code bug-fixing setup: GitHub MCP, Context7, Chrome DevTools MCP and Playwright MCP, with install commands", slug="fix-setup", name="The Claude Code bug-fixing setup", by="Agentic Insider", tag="Claude Code", date="2026-11-08", news=True,
          h1="Why this setup works", h2="The full setup (4 installs)", src="github.com", repo="https://github.com/github/github-mcp-server",
@@ -388,7 +389,7 @@ def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630
         header = (f'<header class="slim"><div class="wrap"><a class="logo" href="../index.html">Agentic Insider</a>'
                   f'<nav><a class="x" href="../index.html#latest">Latest</a><a href="../setups.html">Free setups</a><a class="x" href="../index.html#reels">Reels</a><a href="{IG}">Instagram</a></nav></div></header>')
     else:
-        header = (f'<div class="top"><div class="wrap"><span class="ed">{today}</span><span><a href="{IG}">Instagram</a> · <a href="{FB}">Facebook</a> · <a href="feed.xml">RSS</a></span></div></div>'
+        header = (f'<div class="top"><div class="wrap"><span class="ed">{today}</span><span><a href="{IG}">Instagram</a> · <a href="{YT}">YouTube</a> · <a href="{FB}">Facebook</a> · <a href="feed.xml">RSS</a></span></div></div>'
                   f'<header class="mast"><div class="wrap"><a class="name" href="index.html">Agentic Insider</a>'
                   f'<div class="tag">AI agents &amp; tools that save you hours. Shown working, with the install command.</div></div></header>'
                   f'<nav class="sections"><div class="wrap"><a class="on" href="index.html#latest">Latest</a><a href="setups.html">Free setups</a><a href="index.html#tools">All tools</a><a href="index.html#reels">Reels</a><a href="index.html#about">About</a></div></nav>')
@@ -411,7 +412,7 @@ def shell(title, desc, path, body, ld, img="assets/og-home.jpg", iw=1200, ih=630
 {header}
 {body}
 <footer><div class="wrap"><a class="logo" href="{rel}index.html">Agentic Insider</a>
-<nav><a href="{rel}index.html#about">About</a><a href="{IG}" rel="me">Instagram</a><a href="{FB}" rel="me">Facebook</a><a href="{rel}feed.xml">RSS</a></nav>
+<nav><a href="{rel}index.html#about">About</a><a href="{IG}" rel="me">Instagram</a><a href="{YT}" rel="me">YouTube</a><a href="{FB}" rel="me">Facebook</a><a href="{rel}feed.xml">RSS</a></nav>
 <span>© {date.today().year} Agentic Insider. Facts checked against each project's official repository.</span></div></footer>
 </body></html>"""
 
@@ -451,9 +452,9 @@ home = f"""<a class="banner" href="setups.html">Came from Instagram? Every free 
 <div><p>Agentic Insider tests AI agents and tools that save you hours: coding agents, MCP servers, skills and plugins, and open-source projects that do something genuinely new. Every pick gets a short video on Instagram and Facebook, and a page here that says what it does, who built it and how to install it. We also explain how agents work, and cover the agent stories that matter.</p>
 <p>Every number on this site comes from the project's own repository, and we link to it so you can check before you install anything.</p></div></div></section>
 <section class="follow"><div><h2>A new AI agent setup, most days.</h2><p>Follow along wherever you scroll.</p></div>
-<div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
+<div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{YT}">YouTube</a><a class="btn" href="{FB}">Facebook</a></div></section>
 </main>"""
-org = {"@context": "https://schema.org", "@type": "Organization", "name": "Agentic Insider", "url": BASE + "/", "logo": BASE + "/assets/logo.png", "sameAs": [IG, FB]}
+org = {"@context": "https://schema.org", "@type": "Organization", "name": "Agentic Insider", "url": BASE + "/", "logo": BASE + "/assets/logo.png", "sameAs": [IG, YT, FB]}
 site = {"@context": "https://schema.org", "@type": "WebSite", "name": "Agentic Insider", "url": BASE + "/"}
 faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 Path("index.html").write_text(shell("Agentic Insider: AI Agents & Tools That Save You Hours",
@@ -473,7 +474,7 @@ for t in TOOLS:
 {"" if t.get("news") else f'<dt>Stars</dt><dd>★ {t["stars"]}K</dd><dt>License</dt><dd>{t["license"]}</dd><dt>Price</dt><dd>Free</dd><dt>Setup</dt><dd>{e(t["time"])}</dd>'}
 <dt>{"Who should care" if t.get("news") else "Good for"}</dt><dd>{e(t["good"])}</dd><dt>You need</dt><dd>{e(t["needs"])}</dd></dl>
 <a class="btn pri" href="{t["repo"]}" rel="nofollow">{"Read the source" if t.get("news") else "Open on GitHub"}</a><a class="btn" href="{IG}">Follow on Instagram</a></aside></div>
-<section class="follow"><div><h2>A new AI agent setup, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section>
+<section class="follow"><div><h2>A new AI agent setup, most days.</h2><p>Follow along wherever you scroll.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{YT}">YouTube</a><a class="btn" href="{FB}">Facebook</a></div></section>
 </div></main>"""
     art = {"@context": "https://schema.org", "@type": "Article", "headline": t["hook"], "description": t["lead"], "datePublished": t["date"],
            "image": f"{BASE}/assets/{t['cover']}", "dateModified": t["date"], "mainEntityOfPage": f"{BASE}/tools/{t['slug']}.html",
@@ -514,7 +515,7 @@ SETUP_CSS = """
 setups_body = (f'<main class="wrap"><section class="sh"><div class="kick">Free setups</div><h1>Every setup from our reels, ready to copy</h1>'
                f'<p>The exact install commands shown in our videos, newest first. Each one comes from the project\'s own repository; read what a tool can access before you install it.</p></section>'
                + "".join(setup_card(k, s) for k, s in enumerate(SETUPS))
-               + f'<section class="follow"><div><h2>A new setup most days.</h2><p>Follow along on Instagram and Facebook.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{FB}">Facebook</a></div></section></main>')
+               + f'<section class="follow"><div><h2>A new setup most days.</h2><p>Follow along on Instagram, YouTube and Facebook.</p></div><div class="btns"><a class="btn pri" href="{IG}">Instagram</a><a class="btn" href="{YT}">YouTube</a><a class="btn" href="{FB}">Facebook</a></div></section></main>')
 howto = {"@context": "https://schema.org", "@type": "ItemList", "name": "Free AI agent setups", "itemListElement": [
     {"@type": "ListItem", "position": k + 1, "name": s[0], "url": f"{BASE}/setups.html#s{k + 1}"} for k, s in enumerate(SETUPS)]}
 Path("setups.html").write_text(shell("Free AI agent setups: every install command from our reels | Agentic Insider",

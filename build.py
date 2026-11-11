@@ -242,6 +242,11 @@ REELS = [("reel-hacker.jpg", "One man, one AI agent, 90 organizations hacked", "
 # "Free setups" page (linked from the Instagram bio): every install command shown in a reel, newest first.
 # (title, what you get, reel url, keyword, [(label, command)], repo url, page slug or None)
 SETUPS = [
+    ("Lock your .env: stop your AI agent reading your secrets", "One deny rule keeps Claude Code's file tools out of your .env. Deny always wins over allow, and a .claudeignore file has no effect (Claude Code docs). For OS-level blocking, use the sandbox (macOS, Linux, WSL2).",
+     None, "LOCK",
+     [("Add to .claude/settings.json in your project", '{' + chr(10) + '  "permissions": {' + chr(10) + '    "deny": ["Read(./.env)", "Read(./.env.*)"]' + chr(10) + '  }' + chr(10) + '}'),
+      ("Check your rules inside Claude Code", "/permissions")],
+     "https://code.claude.com/docs/en/permissions", None),
     ("/pr: make your AI agent prove it works", "Matt Pocock's PR skill makes every pull request body follow one template: a summary, before-and-after evidence, and the merge danger (one-way or two-way door, blast radius). The agent can't hide that it didn't test.",
      None, "PROVE",
      [("Install Matt Pocock's skills (Claude Code)", "claude plugin install mattpocock-skills@claude-plugins-official"),
